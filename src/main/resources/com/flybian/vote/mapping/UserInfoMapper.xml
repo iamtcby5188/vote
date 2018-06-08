@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace：必须与对应的接口全类名一致
+    id:必须与对应接口的某个对应的方法名一致
+
+ -->
+
+<mapper namespace="com.flybian.vote.dao.UserInfoMapperDao">
+    <resultMap id="UserInfo" type="UserInfoModel">
+        <id property="id" column="id" javaType="java.lang.String"></id>
+        <result property="userName" column="userName" javaType="java.lang.String"></result>
+        <result property="age" column="age" javaType="java.lang.Integer"></result>
+    </resultMap>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        insert into user_info(userName,age) values(#{userName},#{age})
+    </insert>
+
+    <update id="update" >
+        update user_info set userName=#{userName},age=#{age} where id=#{id}
+    </update>
+
+    <delete id="delete" >
+        delete from user_info where id = #{id}
+    </delete>
+</mapper>
