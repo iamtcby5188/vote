@@ -19,7 +19,7 @@ public class UserInformation
     {
         System.out.println("getUserInfo" );
         response.setHeader("content-type","text/json;charset=UTF-8");
-        UserInfoModel user = new UserInfoModel("aaaa","bbbb",20);
+        UserInfoModel user = new UserInfoModel("1","bbbb",20);
         PrintWriter out = null;
         try {
             out = response.getWriter();

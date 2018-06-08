@@ -10,11 +10,11 @@
     <resultMap id="UserInfo" type="UserInfoModel">
         <id property="id" column="id" javaType="java.lang.String"></id>
         <result property="userName" column="userName" javaType="java.lang.String"></result>
-        <result property="age" column="age" javaType="java.lang.Integer"></result>
+        <result property="age" column="age" javaType="int"></result>
     </resultMap>
 
     <insert id="save" useGeneratedKeys="true" keyProperty="id">
-        insert into user_info(userName,age) values(#{userName},#{age})
+        insert into user_info(id,userName,age) values(#{id},#{userName},#{age})
     </insert>
 
     <update id="update" >

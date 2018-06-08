@@ -9,3 +9,4 @@ public interface UserInfoMapperDao {
 
     public void delete(String id) throws Exception;
 }
+

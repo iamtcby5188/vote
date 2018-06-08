@@ -31,7 +31,7 @@ public class UserInfoModel {
         this.age = age;
     }
 
-    public UserInfoModel(String id, String userName, int age) {
+    public UserInfoModel(String id,String userName, int age) {
         this.id = id;
         this.userName = userName;
         this.age = age;

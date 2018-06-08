@@ -14,7 +14,7 @@ public class VoteApplication {
         //SpringApplication.run(VoteApplication.class,args);
         SqlSession session = DBTools.getSession();
         UserInfoMapperDao mapper = session.getMapper(UserInfoMapperDao.class);
-        UserInfoModel user = new UserInfoModel("aa","bb",2);
+        UserInfoModel user = new UserInfoModel("2","aa",2);
         try{
             mapper.save(user);
             session.commit();
