@@ -7,7 +7,7 @@
  -->
 
 <mapper namespace="com.flybian.vote.dao.UserInfoMapperDao">
-    <resultMap id="UserInfo" type="UserInfoModel">
+    <resultMap id="UserInfoModel" type="UserInfoModel">
         <id property="id" column="id" javaType="java.lang.String"></id>
         <result property="userName" column="userName" javaType="java.lang.String"></result>
         <result property="age" column="age" javaType="int"></result>

@@ -1,8 +1,7 @@
 package com.flybian.vote.facade;
 
 
-import com.alibaba.fastjson.JSONObject;
-import com.flybian.vote.model.UserInfoModel;
+import com.flybian.vote.datastruct.UserInfoModel;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;

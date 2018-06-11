@@ -1,6 +1,6 @@
 package com.flybian.vote.dao;
 
-import com.flybian.vote.model.UserInfoModel;
+import com.flybian.vote.datastruct.UserInfoModel;
 
 public interface UserInfoMapperDao {
     public void save(UserInfoModel user) throws Exception;

@@ -1,4 +1,4 @@
-package com.flybian.vote.model;
+package com.flybian.vote.datastruct.model;
 
 import com.alibaba.fastjson.JSONObject;
 
