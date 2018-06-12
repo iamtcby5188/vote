@@ -102,6 +102,9 @@ public class UserInfoModel {
         jo.put("username",username);
         jo.put("nickname",nickname);
         jo.put("age",age);
+        jo.put("birthday",birthday);
+        jo.put("mobile",mobile);
+        jo.put("email",email);
         return  jo.toJSONString();
     }
 }

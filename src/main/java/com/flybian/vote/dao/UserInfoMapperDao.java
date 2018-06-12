@@ -7,6 +7,6 @@ public interface UserInfoMapperDao {
     public void addNewUser(UserInfoDto user);
     public void modifyUser(UserInfoDto user);
     public void deleteUser(String id);
-    public void getUserInfo(String id);
+    public UserInfoDto getUserInfo(String id);
 }
 

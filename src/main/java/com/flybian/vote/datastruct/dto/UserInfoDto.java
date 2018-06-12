@@ -1,5 +1,7 @@
 package com.flybian.vote.datastruct.dto;
 
+import com.alibaba.fastjson.JSONObject;
+
 public class UserInfoDto {
     private String id;
     private String username;
@@ -14,7 +16,39 @@ public class UserInfoDto {
     private String create_type;
     private String modify_time;
 
-    public UserInfoDto(String id, String username, String nickname, String password, String birthday, int age, String mobile, String email,String create_time,String create_type) {
+    @Override
+    public  String toString()
+    {
+        JSONObject jo = new JSONObject();
+        jo.put("id",id);
+        jo.put("username",username);
+        jo.put("nickname",nickname);
+        jo.put("age",age);
+        jo.put("birthday",birthday);
+        jo.put("mobile",mobile);
+        jo.put("email",email);
+        return  jo.toJSONString();
+    }
+
+    public UserInfoDto() {
+    }
+
+    public UserInfoDto(String id, String username, String nickname, String password, String birthday, int age, String mobile, String email, int status, String create_time, String create_type, String modify_time) {
+        this.id = id;
+        this.username = username;
+        this.nickname = nickname;
+        this.password = password;
+        this.birthday = birthday;
+        this.age = age;
+        this.mobile = mobile;
+        this.email = email;
+        this.status = status;
+        this.create_time = create_time;
+        this.create_type = create_type;
+        this.modify_time = modify_time;
+    }
+
+    public UserInfoDto(String id, String username, String nickname, String password, String birthday, int age, String mobile, String email, String create_time, String create_type) {
         this.id = id;
         this.username = username;
         this.nickname = nickname;

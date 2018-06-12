@@ -20,4 +20,9 @@ public class UserInformationService {
         user_info_dao.modifyUser(user);
         session.commit();
     }
+
+    public UserInfoDto getUserInfoById(String id)
+    {
+        return  user_info_dao.getUserInfo(id);
+    }
 }

@@ -35,4 +35,8 @@
     <delete id="delete" >
         delete from user_info where id = #{id}
     </delete>
+
+    <select id="getUserInfo" resultMap="UserInfoDto" parameterType="java.lang.String">
+        select * from user_info where id = #{id}
+    </select>
 </mapper>
