@@ -1,38 +1,34 @@
 package com.flybian.vote.facade;
 
-
-import com.flybian.vote.datastruct.UserInfoModel;
+import com.flybian.vote.datastruct.convert.UserInfoConvert;
+import com.flybian.vote.datastruct.dto.UserInfoDto;
+import com.flybian.vote.datastruct.model.UserInfoModel;
+import com.flybian.vote.service.UserInformationService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 @RestController
 @RequestMapping(value="/user")
 public class UserInformation
 {
-    @RequestMapping(value = "/getUserInfo" ,method = RequestMethod.GET)
-    public void getUserInfo(HttpServletRequest request, HttpServletResponse response)
-    {
-        System.out.println("getUserInfo" );
-        response.setHeader("content-type","text/json;charset=UTF-8");
-        UserInfoModel user = new UserInfoModel("1","bbbb",20);
-        PrintWriter out = null;
-        try {
-            out = response.getWriter();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private UserInformationService user_info_service = new UserInformationService();
 
-        out.write(user.toJsonString());
-        System.out.println(user.toJsonString());
+    @RequestMapping(value = "/addNewUser",method = RequestMethod.POST)
+    public void addNewUser(HttpServletRequest request,HttpServletResponse response,@RequestBody UserInfoModel user)
+    {
+        System.out.println(user);
+       UserInfoDto userinfo = UserInfoConvert.convertUserInfoModel(user);
+        user_info_service.addNewUser(userinfo);
     }
 
-    @RequestMapping(value = "/setUserDetail",method = RequestMethod.PUT)
-    public void setUserDetail(HttpServletRequest request,HttpServletResponse response,@RequestParam String userId)
+    @RequestMapping(value = "/modifyUser",method = RequestMethod.POST)
+    public void modifyUser(HttpServletRequest request,HttpServletResponse response,@RequestBody UserInfoModel user)
     {
-        System.out.println("setUserDetail" + userId);
+        System.out.println(user);
+        UserInfoDto userinfo = UserInfoConvert.convertUserInfoModel(user);
+        user_info_service.modifyUser(userinfo);
     }
 }

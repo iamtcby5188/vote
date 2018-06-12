@@ -4,8 +4,15 @@ import com.alibaba.fastjson.JSONObject;
 
 public class UserInfoModel {
     private String id;
-    private String userName;
-    private int    age;
+    private String username;
+    private String nickname;
+    private String birthday;
+    private String password;
+    private int age;
+    private String mobile;
+    private String email;
+    private int status ;
+    private String create_type;
 
     public String getId() {
         return id;
@@ -15,12 +22,36 @@ public class UserInfoModel {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getAge() {
@@ -31,17 +62,45 @@ public class UserInfoModel {
         this.age = age;
     }
 
-    public UserInfoModel(String id,String userName, int age) {
-        this.id = id;
-        this.userName = userName;
-        this.age = age;
+    public String getMobile() {
+        return mobile;
     }
 
-    public  String toJsonString()
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getCreate_type() {
+        return create_type;
+    }
+
+    public void setCreate_type(String create_type) {
+        this.create_type = create_type;
+    }
+
+    @Override
+    public  String toString()
     {
         JSONObject jo = new JSONObject();
         jo.put("id",id);
-        jo.put("name",userName);
+        jo.put("username",username);
+        jo.put("nickname",nickname);
         jo.put("age",age);
         return  jo.toJSONString();
     }

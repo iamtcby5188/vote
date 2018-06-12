@@ -7,18 +7,29 @@
  -->
 
 <mapper namespace="com.flybian.vote.dao.UserInfoMapperDao">
-    <resultMap id="UserInfoModel" type="UserInfoModel">
+    <resultMap id="UserInfoDto" type="com.flybian.vote.datastruct.dto.UserInfoDto">
         <id property="id" column="id" javaType="java.lang.String"></id>
-        <result property="userName" column="userName" javaType="java.lang.String"></result>
+        <result property="username" column="username" javaType="java.lang.String"></result>
+        <result property="nickname" column="nickname" javaType="java.lang.String"></result>
+        <result property="password" column="password" javaType="java.lang.String"></result>
+        <result property="birthday" column="birthday" javaType="java.lang.String"></result>
         <result property="age" column="age" javaType="int"></result>
+        <result property="mobile" column="mobile" javaType="java.lang.String"></result>
+        <result property="email" column="email" javaType="java.lang.String"></result>
+        <result property="create_time" column="create_time" javaType="java.lang.String"></result>
+        <result property="create_type" column="create_type" javaType="java.lang.String"></result>
+        <result property="modify_time" column="modify_time" javaType="java.lang.String"></result>
+        <result property="status" column="status" javaType="int"></result>
     </resultMap>
 
-    <insert id="save" useGeneratedKeys="true" keyProperty="id">
-        insert into user_info(id,userName,age) values(#{id},#{userName},#{age})
+    <insert id="addNewUser" useGeneratedKeys="true" keyProperty="id">
+        insert into user_info(id,username,nickname,password,birthday,age,mobile,email,status,create_time,create_type,modify_time)
+        values
+        (#{id},#{username},#{nickname},#{password},#{birthday},#{age},#{mobile},#{email},#{status},#{create_time},#{create_type},#{modify_time})
     </insert>
 
-    <update id="update" >
-        update user_info set userName=#{userName},age=#{age} where id=#{id}
+    <update id="modifyUser" >
+        update user_info set username=#{username},age=#{age} where id=#{id}
     </update>
 
     <delete id="delete" >

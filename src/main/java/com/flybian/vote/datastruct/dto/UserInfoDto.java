@@ -8,8 +8,13 @@ public class UserInfoDto {
     private String birthday;
     private int age;
     private String mobile;
+    private String email;
+    private int status;
+    private String create_time;
+    private String create_type;
+    private String modify_time;
 
-    public UserInfoDto(String id, String username, String nickname, String password, String birthday, int age, String mobile, String email) {
+    public UserInfoDto(String id, String username, String nickname, String password, String birthday, int age, String mobile, String email,String create_time,String create_type) {
         this.id = id;
         this.username = username;
         this.nickname = nickname;
@@ -18,17 +23,25 @@ public class UserInfoDto {
         this.age = age;
         this.mobile = mobile;
         this.email = email;
+        this.create_time = create_time;
+        this.create_type = create_type;
     }
 
-    public UserInfoDto(String username, String nickname, String password, String birthday, int age, String mobile, String email) {
+    public String getCreate_time() {
+        return create_time;
+    }
 
-        this.username = username;
-        this.nickname = nickname;
-        this.password = password;
-        this.birthday = birthday;
-        this.age = age;
-        this.mobile = mobile;
-        this.email = email;
+    public void setModify_time(String modify_time) {
+        this.modify_time = modify_time;
+    }
+
+    public String getCreate_type() {
+
+        return create_type;
+    }
+
+    public String getModify_time() {
+        return modify_time;
     }
 
     public String getId() {
@@ -103,7 +116,4 @@ public class UserInfoDto {
     public void setStatus(int status) {
         this.status = status;
     }
-
-    private String email;
-    private int status;
 }
