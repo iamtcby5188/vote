@@ -33,21 +33,6 @@ public class UserInfoDto {
     public UserInfoDto() {
     }
 
-    public UserInfoDto(String id, String username, String nickname, String password, String birthday, int age, String mobile, String email, int status, String create_time, String create_type, String modify_time) {
-        this.id = id;
-        this.username = username;
-        this.nickname = nickname;
-        this.password = password;
-        this.birthday = birthday;
-        this.age = age;
-        this.mobile = mobile;
-        this.email = email;
-        this.status = status;
-        this.create_time = create_time;
-        this.create_type = create_type;
-        this.modify_time = modify_time;
-    }
-
     public UserInfoDto(String id, String username, String nickname, String password, String birthday, int age, String mobile, String email, String create_time, String create_type) {
         this.id = id;
         this.username = username;
