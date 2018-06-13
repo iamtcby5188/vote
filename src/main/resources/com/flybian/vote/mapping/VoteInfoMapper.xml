@@ -17,23 +17,19 @@
     </resultMap>
 
     <insert id="addNewVote" useGeneratedKeys="true" keyProperty="id" parameterType="com.flybian.vote.datastruct.dto.VoteInfoDto">
-        insert into vote_info (id,create_user,create_time,vote_type,vote_topic,vote_descroption)
+        insert into vote_info (id,create_user,create_time,vote_type,vote_topic,vote_description)
         values
-        (#{id},#{create_user},#{create_time},#{vote_type},#{vote_topic},#{vote_descroption})
+        (#{id},#{create_user},#{create_time},#{vote_type},#{vote_topic},#{vote_description})
     </insert>
 
     <insert id="addVoteOption" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">
-        insert into vote_option(id,option,vote_id)
-        <foreach collection="list" open="(" close=")"  item="item" index="index" separator="union">
-            select
-            #{item.id,jdbcType=VARCHAR},
-            #{item.option,jdbcType=VARCHAR},
-            #{item.vote_id,jdbcType=VARCHAR}
-            from dual
+        insert into vote_option (id,vote_option,vote_id) values
+        <foreach collection="list" open="" close=""  item="item" index="index" separator=",">
+          (#{item.id}, #{item.vote_option}, #{item.vote_id})
         </foreach>
     </insert>
 
-    <select id="getVoteInfo" resultMap="VoteDto" parameterType="java.lang.String">
+    <select id="getVoteInfo" resultMap="VoteInfoDto" parameterType="java.lang.String">
         select* from vote_info where create_user = #{user_id}
     </select>
 

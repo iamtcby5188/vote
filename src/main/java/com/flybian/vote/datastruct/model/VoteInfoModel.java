@@ -20,7 +20,7 @@ public class VoteInfoModel {
     }
 
     public String getId() {
-        return id;
+        return id == null?"":id;
     }
 
     public void setId(String id) {
@@ -75,8 +75,7 @@ public class VoteInfoModel {
         this.lst_vote_option = lst_vote_option;
     }
 
-    @Override
-    public String toString()
+    public JSONObject toJson()
     {
         JSONObject jo = new JSONObject();
         jo.put("id",id);
@@ -89,10 +88,10 @@ public class VoteInfoModel {
         JSONArray ja = new JSONArray();
         for (VoteOptionModel item:lst_vote_option)
         {
-            ja.add(item.toString());
+            ja.add(item.toJson());
         }
-        jo.put("option_list",ja.toJSONString());
+        jo.put("option_list",ja);
 
-        return  jo.toJSONString();
+        return  jo;
     }
 }

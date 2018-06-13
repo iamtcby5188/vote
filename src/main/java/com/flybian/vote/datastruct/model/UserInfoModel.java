@@ -15,7 +15,7 @@ public class UserInfoModel {
     private String create_type;
 
     public String getId() {
-        return id;
+        return id == null?"":id;
     }
 
     public void setId(String id) {
@@ -94,8 +94,8 @@ public class UserInfoModel {
         this.create_type = create_type;
     }
 
-    @Override
-    public  String toString()
+
+    public  JSONObject toJson()
     {
         JSONObject jo = new JSONObject();
         jo.put("id",id);
@@ -105,6 +105,6 @@ public class UserInfoModel {
         jo.put("birthday",birthday);
         jo.put("mobile",mobile);
         jo.put("email",email);
-        return  jo.toJSONString();
+        return  jo;
     }
 }

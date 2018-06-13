@@ -6,7 +6,6 @@ import com.flybian.vote.datastruct.convert.VoteInfoConvert;
 import com.flybian.vote.datastruct.dto.VoteInfoDto;
 import com.flybian.vote.datastruct.dto.VoteOptionDto;
 import com.flybian.vote.datastruct.model.VoteInfoModel;
-import com.flybian.vote.datastruct.model.VoteOptionModel;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.ArrayList;
@@ -23,7 +22,9 @@ public class VoteInformationService {
         VoteInfoConvert.convertVoteInfoModel(vote,dto,lst);
 
         vote_info_dao.addNewVote(dto);
-        vote_info_dao.addVoteOption(lst);
+        if(!lst.isEmpty()) {
+            vote_info_dao.addVoteOption(lst);
+        }
         session.commit();
     }
 

@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -31,11 +30,13 @@ public class VoteInformation {
     @RequestMapping(value = "/getVoteInfo",method = RequestMethod.GET)
     public void getVoteInfoByUser(HttpServletRequest request, HttpServletResponse response, @RequestParam String user_id)
     {
+        response.setContentType("text/json");
+        response.setCharacterEncoding("UTF-8");
         List<VoteInfoModel> lst_model = vote_info_service.getVoteInfoByUser(user_id);
         JSONArray ja = new JSONArray();
         for (VoteInfoModel item : lst_model)
         {
-            ja.add(item.toString());
+            ja.add(item.toJson());
         }
 
         PrintWriter out = null;
@@ -44,6 +45,8 @@ public class VoteInformation {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        out.write(ja.toJSONString());
+
+        System.out.println(ja.toString());
+        out.write(ja.toString());
     }
 }

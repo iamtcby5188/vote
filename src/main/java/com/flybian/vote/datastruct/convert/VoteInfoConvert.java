@@ -22,8 +22,9 @@ public class VoteInfoConvert {
         {
             VoteOptionDto tmp_dto = new VoteOptionDto();
             tmp_dto.setId(item.getId().isEmpty()?UtilTools.getUUID():item.getId());
-            tmp_dto.setOption(item.getOption());
+            tmp_dto.setVote_option(item.getVote_option());
             tmp_dto.setVote_id(vote_dto.getId());
+            lst_option_dto.add(tmp_dto);
         }
     }
 
@@ -37,11 +38,13 @@ public class VoteInfoConvert {
         model.setVote_topic(dto.getVote_topic());
         model.setVote_description(dto.getVote_description());
 
+        List<VoteOptionModel> lst_option = model.getLst_vote_option();
         for (VoteOptionDto item : lst_option_dto){
             VoteOptionModel tmp_model = new VoteOptionModel();
             tmp_model.setId(item.getId());
-            tmp_model.setOption(item.getOption());
+            tmp_model.setVote_option(item.getVote_option());
             tmp_model.setVote_id(item.getVote_id());
+            lst_option.add(tmp_model);
         }
 
         return  model;
