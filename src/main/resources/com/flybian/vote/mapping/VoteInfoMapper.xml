@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flybian.vote.dao.VoteInfoMapperDao">
+    <resultMap id="VoteInfoDto" type="com.flybian.vote.datastruct.dto.VoteInfoDto">
+        <id property="id" column="id" javaType="java.lang.String"></id>
+        <result property="create_user" column="create_user" javaType="java.lang.String"></result>
+        <result property="create_time" column="create_time" javaType="java.lang.String"></result>
+        <result property="vote_type" column="vote_type" javaType="int"></result>
+        <result property="vote_topic" column="vote_topic" javaType="java.lang.String"></result>
+        <result property="vote_description" column="vote_description" javaType="java.lang.String"></result>
+    </resultMap>
+
+    <resultMap id="VoteOptionDto" type="com.flybian.vote.datastruct.dto.VoteOptionDto">
+        <id property="id" column="id" javaType="java.lang.String"></id>
+        <result property="option" column="option" javaType="java.lang.String"></result>
+        <result property="vote_id" column="vote_id" javaType="java.lang.String"></result>
+    </resultMap>
+
+    <insert id="addNewVote" useGeneratedKeys="true" keyProperty="id" parameterType="com.flybian.vote.datastruct.dto.VoteInfoDto">
+        insert into vote_info (id,create_user,create_time,vote_type,vote_topic,vote_descroption)
+        values
+        (#{id},#{create_user},#{create_time},#{vote_type},#{vote_topic},#{vote_descroption})
+    </insert>
+
+    <insert id="addVoteOption" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">
+        insert into vote_option(id,option,vote_id)
+        <foreach collection="list" open="(" close=")"  item="item" index="index" separator="union">
+            select
+            #{item.id,jdbcType=VARCHAR},
+            #{item.option,jdbcType=VARCHAR},
+            #{item.vote_id,jdbcType=VARCHAR}
+            from dual
+        </foreach>
+    </insert>
+
+    <select id="getVoteInfo" resultMap="VoteDto" parameterType="java.lang.String">
+        select* from vote_info where create_user = #{user_id}
+    </select>
+
+    <select id="getVoteOption" resultMap="VoteOptionDto" parameterType="java.lang.String">
+        select * from vote_option where vote_id = #{vote_id}
+    </select>
+</mapper>

@@ -1,23 +1,12 @@
-package com.flybian.vote.datastruct.model;
+package com.flybian.vote.datastruct.dto;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class VoteInfoModel {
+public class VoteInfoDto {
     private String id;
     private String create_user;
     private String create_time;
     private int vote_type;
     private String vote_topic;
     private String vote_description;
-    private List<VoteOptionModel> lst_vote_option;
-
-    public VoteInfoModel() {
-        lst_vote_option = new ArrayList <>();
-    }
 
     public String getId() {
         return id;
@@ -65,34 +54,5 @@ public class VoteInfoModel {
 
     public void setVote_description(String vote_description) {
         this.vote_description = vote_description;
-    }
-
-    public List <VoteOptionModel> getLst_vote_option() {
-        return lst_vote_option;
-    }
-
-    public void setLst_vote_option(List <VoteOptionModel> lst_vote_option) {
-        this.lst_vote_option = lst_vote_option;
-    }
-
-    @Override
-    public String toString()
-    {
-        JSONObject jo = new JSONObject();
-        jo.put("id",id);
-        jo.put("create_user",create_user);
-        jo.put("create_time",create_time);
-        jo.put("vote_type",vote_type);
-        jo.put("vote_topic",vote_topic);
-        jo.put("vote_description",vote_description);
-
-        JSONArray ja = new JSONArray();
-        for (VoteOptionModel item:lst_vote_option)
-        {
-            ja.add(item.toString());
-        }
-        jo.put("option_list",ja.toJSONString());
-
-        return  jo.toJSONString();
     }
 }
