@@ -1,13 +1,8 @@
 package com.flybian.vote.facade;
 
 import com.alibaba.fastjson.JSONArray;
-import com.flybian.vote.datastruct.convert.VoteInfoConvert;
-import com.flybian.vote.datastruct.dto.UserInfoDto;
-import com.flybian.vote.datastruct.dto.VoteInfoDto;
-import com.flybian.vote.datastruct.dto.VoteOptionDto;
 import com.flybian.vote.datastruct.model.VoteInfoModel;
 import com.flybian.vote.service.VoteInformationService;
-import com.mysql.cj.xdevapi.JsonArray;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
