@@ -36,7 +36,6 @@ public class UserInformation
     @RequestMapping(value = "/getUserInfoById",method = RequestMethod.GET)
     public void getUserInfoById(HttpServletRequest request,HttpServletResponse response,@RequestParam String id)
     {
-        System.out.println(id);
         UserInfoDto userinfo = user_info_service.getUserInfoById(id);
         PrintWriter out = null;
         try {
@@ -45,5 +44,11 @@ public class UserInformation
             e.printStackTrace();
         }
         out.write(userinfo.toString());
+    }
+
+    @RequestMapping(value = "/weChatLogin",method = RequestMethod.GET)
+    public void weChatLogin(HttpServletRequest request,HttpServletResponse response,@RequestParam String code)
+    {
+        System.out.println("code" +code);
     }
 }

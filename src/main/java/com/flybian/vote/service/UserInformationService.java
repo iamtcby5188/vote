@@ -25,4 +25,9 @@ public class UserInformationService {
     {
         return  user_info_dao.getUserInfo(id);
     }
+
+    public void weChatLogin(String code)
+    {
+
+    }
 }
