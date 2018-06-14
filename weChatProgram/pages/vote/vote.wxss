@@ -1,0 +1,19 @@
+/* pages/vote_single/vote_single.wxss */
+@import "../../lib/weui.wxss";
+.del-image{
+  height: 50rpx;
+  width: 50rpx;
+  margin-right: 20rpx;
+}
+.add-image{
+  height: 50rpx;
+  width: 56rpx;
+  margin-right: 20rpx;
+}
+.picker-date{
+  float: right;
+  margin-right: 20rpx;
+}
+.picker-time{
+  float: right;
+}

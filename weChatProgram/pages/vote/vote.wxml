@@ -1,0 +1,27 @@
+<!--pages/vote_single/vote_single.wxml-->
+<scroll-view>
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder= "{{topic.placeholder}}"  bindinput="topicChanges"></input>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <input class="weui-input" placeholder= "{{description.placeholder}}"  bindinput="descriptionChanges"></input>
+  </view>
+  <view class="weui-cell weui-cell_input" wx:for="{{item_list}}">
+    <image class="del-image" src="{{del_ico_src}}" id = "{{index}}" bindtap = "clickdelitem"></image>
+    <input class="weui-input"  id = "{{index}}" placeholder='{{item.placeholder}}' bindinput="itemChanges" value='{{item.text}}'></input>
+  </view>
+  <view class="weui-cell">
+    <image class="add-image" src="{{add_ico_src}}" id = "{{index}}" bindtap = "addItems"></image>
+    <text  bindtap = "addItems">添加选项</text>
+  </view>
+  <view class="weui-cell section">
+    <text>截止时间：</text>
+    <picker class = 'picker-date' mode="date" value="{{date}}" start="1900-01-01" end="2099-12-31" bindchange="bindDateChange">
+      <view class="picker picker-date">{{date}}</view>
+    </picker>
+    <picker class = 'picker-time' mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+        <view class="picker">{{time}} </view>
+    </picker>
+  </view>
+  <button bindtap="clickComplete">完成</button>
+</scroll-view>

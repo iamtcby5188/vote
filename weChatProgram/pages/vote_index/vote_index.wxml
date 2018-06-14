@@ -1,0 +1,7 @@
+<!--pages/vote_index/vote_index.wxml-->
+<view class="container vote-type-list">
+    <image class='vote-type-image' mode="{{mutil_selection.mode}}" src="{{mutil_selection.src}}" bindtap="clickMutilImage"></image>
+    <text class='vote-type-text' bindtap="clickMutilImage"> 多选</text>
+    <image class='vote-type-image' mode="{{single_selection.mode}}" src="{{single_selection.src}}" bindtap = "clickSingleImage"></image>
+    <text class='vote-type-text' bindtap = "clickSingleImage">单选</text>
+</view>
