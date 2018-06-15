@@ -6,8 +6,9 @@ const request_url = {
 const golable_variable ={
   appid : "wxa89b0e1e9136faec",
   appsecret : "3b85c08f6c96607033e925e1c93a0705",
-  getsession_url : "https://api.weixin.qq.com/sns/jscode2session"
-
+  getsession_url : "https://api.weixin.qq.com/sns/jscode2session",
+  vote_single :1,
+  vote_mutil: 2,
 }
 
 const prev_url_dev = "http://localhost:8080/";

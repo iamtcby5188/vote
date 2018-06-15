@@ -11,4 +11,7 @@ public class Constant {
 
     public static final int DATA_STATUS_VALIDATE = 0;
     public static final int DATA_STATUS_INVALIDATE = 1;
+
+    public static final int VOTE_SINGLE = 1;
+    public static final int VOTE_MUTIL = 2;
 }

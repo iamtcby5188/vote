@@ -1,4 +1,5 @@
 // pages/vote_index/vote_index.js
+const constant = require("../../utils/constant.js")
 Page({
 
   /**
@@ -73,13 +74,13 @@ Page({
   clickMutilImage : function(){
     console.log("click mutilImage")
     wx.navigateTo({
-      url: '../vote/vote?type=2'
+      url: '../vote/vote?type=' + constant.golable_variable.vote_mutil
     })
   },
   clickSingleImage:function(){
     console.log("click singleImgae")
     wx.navigateTo({
-      url: '../vote/vote?type=1'
+      url: '../vote/vote?type=' + constant.golable_variable.vote_single
     })
   }
 })
