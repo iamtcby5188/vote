@@ -29,11 +29,15 @@ public class UserInformationService {
         return  user_info_dao.getUserInfo(id);
     }
 
+    public UserInfoDto getUserInfoByOpen_id(String open_id)
+    {
+        return  user_info_dao.getUserInfoByOpenId(open_id);
+    }
+
     public String weChatLogin(UserInfoModel user)
     {
         UserInfoDto dto = UserInfoConvert.convertUserInfoModel(user);
         String id = user_info_dao.getIdByOpenID(dto.getOpen_id());
-        System.out.println(id);
         if(id == null || id.isEmpty())
         {
             id = dto.getId();

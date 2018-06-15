@@ -1,4 +1,7 @@
 // pages/vote_single/vote_single.js
+const app = getApp()
+const constant = require("../../utils/constant.js")
+const util = require("../../utils/util.js")
 Page({
 
   /**
@@ -40,7 +43,7 @@ Page({
         title: options.type === "1" ? "创建单选投票单" : "创建多选投票单",
       })
       var curDate = new Date()
-      this.setData({date:curDate.getFullYear()+"-"+(curDate.getMonth() + 1)+'-'+curDate.getDate()})
+      this.setData({ date:util.formatTime(curDate,"yyyy-MM-dd")})
   },
 
   /**
@@ -131,6 +134,56 @@ Page({
     })
   },
   clickComplete:function(){
-    console.log("finish")
+    if(this.data.topic.text.length <= 0){
+      wx.showModal({
+        title: '提示',
+        content: '主题为空',
+        showCancel:false
+      })
+      return;
+    }
+    if (this.data.description.text.length<=0){
+      //return;
+    }
+
+    let vote_info = {
+      create_user: app.globalData.userInfo.id,
+      vote_topic: this.data.topic.text,
+      vote_description: this.data.description.text,
+      vote_type:this.data.vote_type,
+      dead_line:this.data.date +" "+ this.data.time + ":00",
+      lst_vote_option:[]
+    }
+
+    var hasOption = false;
+    for(let i = 0 ; i <this.data.item_list.length;++i){
+      if(this.data.item_list[i].text.length>0){
+        vote_info.lst_vote_option.push({vote_option:this.data.item_list[i].text})
+        hasOption = true
+      }
+    }
+
+    if(!hasOption){
+      wx.showModal({
+        title: '提示',
+        content: '至少有一个选项',
+        showCancel: false
+      })
+      return;
+    }
+    wx.request({
+      url: constant.getUrl(constant.request_url.addNewVote),
+      data:vote_info,
+      method: 'POST',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: res=>{
+        console.log("vote succ")
+      },
+      fail:res=>{
+        console.log("vote error")
+      }
+      })
   }
 })

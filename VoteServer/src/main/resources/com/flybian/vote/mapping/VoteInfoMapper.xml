@@ -8,6 +8,7 @@
         <result property="vote_type" column="vote_type" javaType="int"></result>
         <result property="vote_topic" column="vote_topic" javaType="java.lang.String"></result>
         <result property="vote_description" column="vote_description" javaType="java.lang.String"></result>
+        <result property="vote_deadline" column="vote_deadline" javaType="java.lang.String"></result>
     </resultMap>
 
     <resultMap id="VoteOptionDto" type="com.flybian.vote.datastruct.dto.VoteOptionDto">
@@ -17,9 +18,9 @@
     </resultMap>
 
     <insert id="addNewVote" useGeneratedKeys="true" keyProperty="id" parameterType="com.flybian.vote.datastruct.dto.VoteInfoDto">
-        insert into vote_info (id,create_user,create_time,vote_type,vote_topic,vote_description)
+        insert into vote_info (id,create_user,create_time,vote_type,vote_topic,vote_description,vote_deadline)
         values
-        (#{id},#{create_user},#{create_time},#{vote_type},#{vote_topic},#{vote_description})
+        (#{id},#{create_user},#{create_time},#{vote_type},#{vote_topic},#{vote_description},#{vote_deadline})
     </insert>
 
     <insert id="addVoteOption" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">

@@ -7,14 +7,14 @@ import java.util.Date;
 import java.util.UUID;
 
 public class UtilTools {
-    static SimpleDateFormat dfYYYYMMDDHHmmss = new SimpleDateFormat("yyyyMMddHHmmss");
+    static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     static public  String getUUID(){
 
         return UUID.randomUUID().toString().replace("-","").toLowerCase();
     }
 
     static public String getCurrentTimeString(){
-        return  dfYYYYMMDDHHmmss.format(new Date());
+        return  df.format(new Date());
     }
 
     static public String buildJson(String key,String value){

@@ -32,6 +32,10 @@
         select * from user_info where id = #{id}
     </select>
 
+    <select id="getUserInfoByOpenId" resultMap="UserInfoDto" parameterType="java.lang.String">
+        select * from user_info where open_id = #{open_id}
+    </select>
+
     <select id="getIdByOpenID" resultType="java.lang.String" parameterType="java.lang.String">
         select id from user_info where open_id = #{open_id}
     </select>

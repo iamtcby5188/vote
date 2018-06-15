@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
     "pages/vote_index/vote_index",
     "pages/vote/vote"
   ],

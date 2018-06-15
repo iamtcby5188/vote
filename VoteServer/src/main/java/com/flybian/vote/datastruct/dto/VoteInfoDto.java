@@ -7,6 +7,17 @@ public class VoteInfoDto {
     private int vote_type;
     private String vote_topic;
     private String vote_description;
+    private String vote_deadline;
+
+    public VoteInfoDto() {
+        this.id = "";
+        this.create_user = "";
+        this.create_time = "";
+        this.vote_type = 0;
+        this.vote_topic = "";
+        this.vote_description = "";
+        this.vote_deadline = "";
+    }
 
     public String getId() {
         return id;
@@ -50,6 +61,14 @@ public class VoteInfoDto {
 
     public String getVote_description() {
         return vote_description;
+    }
+
+    public String getVote_deadline() {
+        return vote_deadline;
+    }
+
+    public void setVote_deadline(String vote_deadline) {
+        this.vote_deadline = vote_deadline;
     }
 
     public void setVote_description(String vote_description) {

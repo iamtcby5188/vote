@@ -13,14 +13,22 @@ public class VoteInfoModel {
     private int vote_type;
     private String vote_topic;
     private String vote_description;
+    private String dead_line;
     private List<VoteOptionModel> lst_vote_option;
 
     public VoteInfoModel() {
+        id = "";
+        create_user="";
+        create_time= "";
+        vote_topic ="";
+        vote_description="";
+        vote_type=1;
+        dead_line="";
         lst_vote_option = new ArrayList <>();
     }
 
     public String getId() {
-        return id == null?"":id;
+        return id;
     }
 
     public void setId(String id) {
@@ -73,6 +81,14 @@ public class VoteInfoModel {
 
     public void setLst_vote_option(List <VoteOptionModel> lst_vote_option) {
         this.lst_vote_option = lst_vote_option;
+    }
+
+    public String getDead_line() {
+        return dead_line;
+    }
+
+    public void setDead_line(String dead_line) {
+        this.dead_line = dead_line;
     }
 
     public JSONObject toJson()

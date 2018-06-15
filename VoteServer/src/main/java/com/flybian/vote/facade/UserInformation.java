@@ -62,4 +62,17 @@ public class UserInformation
         }
         out.write(UtilTools.buildJson("id",id));
     }
+
+    @RequestMapping(value = "/weChatGetUserInfo",method = RequestMethod.GET)
+    public void weChatGetUserInfo(HttpServletRequest request,HttpServletResponse response,@RequestParam String open_id)
+    {
+        UserInfoDto userinfo = user_info_service.getUserInfoByOpen_id(open_id);
+        PrintWriter out = null;
+        try {
+            out = response.getWriter();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        out.write(userinfo.toString());
+    }
 }

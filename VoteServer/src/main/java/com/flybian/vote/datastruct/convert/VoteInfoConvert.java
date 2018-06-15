@@ -16,6 +16,7 @@ public class VoteInfoConvert {
         vote_dto.setVote_type(vote_model.getVote_type());
         vote_dto.setVote_topic(vote_model.getVote_topic());
         vote_dto.setVote_description(vote_model.getVote_description());
+        vote_dto.setVote_deadline(vote_model.getDead_line());
 
         List<VoteOptionModel> lst = vote_model.getLst_vote_option();
         for (VoteOptionModel item:lst)
@@ -37,6 +38,7 @@ public class VoteInfoConvert {
         model.setVote_type(dto.getVote_type());
         model.setVote_topic(dto.getVote_topic());
         model.setVote_description(dto.getVote_description());
+        model.setDead_line(dto.getVote_deadline());
 
         List<VoteOptionModel> lst_option = model.getLst_vote_option();
         for (VoteOptionDto item : lst_option_dto){

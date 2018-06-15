@@ -1,6 +1,7 @@
 package com.flybian.vote.service;
 
 import com.flybian.util.DBTools;
+import com.flybian.util.UtilTools;
 import com.flybian.vote.dao.VoteInfoMapperDao;
 import com.flybian.vote.datastruct.convert.VoteInfoConvert;
 import com.flybian.vote.datastruct.dto.VoteInfoDto;
@@ -20,7 +21,7 @@ public class VoteInformationService {
         VoteInfoDto dto = new VoteInfoDto();
         List<VoteOptionDto> lst = new ArrayList<>();
         VoteInfoConvert.convertVoteInfoModel(vote,dto,lst);
-
+        dto.setCreate_time(UtilTools.getCurrentTimeString());
         vote_info_dao.addNewVote(dto);
         if(!lst.isEmpty()) {
             vote_info_dao.addVoteOption(lst);
