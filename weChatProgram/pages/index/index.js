@@ -36,7 +36,7 @@ Page({
     wx.getUserInfo({
       success : res=>{
         app.globalData.userInfo = res.userInfo;
-        this.redirectWindow()
+        this.login_service()
       },
       fail : res=>{
         console.log(res);
@@ -55,7 +55,7 @@ Page({
       success: res=> {
         // 获取用户信息
         app.globalData.session_key = res.data.session_key
-        app.globalData.openid = res.data.openid
+        app.globalData.open_id = res.data.openid
         this.get_session_success()
       },
       fail: res=> {
@@ -79,7 +79,37 @@ Page({
   },
   onGotUserInfo: function (e) {
     app.globalData.userInfo = e.detail.userInfo
-    this.redirectWindow()
+    this.login_service()
+  },
+  login_service:function(){
+    console.log(app.globalData.userInfo);
+    console.log(app.globalData.userInfo.avatarUrl);
+    wx.request({
+      url: constant.getUrl(constant.request_url.login),
+      data: {
+        nickname: app.globalData.userInfo.nickName,
+        gender: app.globalData.userInfo.gender,
+        country: app.globalData.userInfo.country,
+        province: app.globalData.userInfo.province,
+        city: app.globalData.userInfo.city,
+        avatar_url: app.globalData.userInfo.avatarUrl,
+        open_id: app.globalData.open_id,
+        session_key: app.globalData.session_key,
+      },
+      method:'POST',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: res => {
+        console.log(res);
+        app.globalData.userInfo.id = res.data.id;
+        console.log(app.globalData.userInfo)
+        this.redirectWindow()
+      },
+      fail: res => {
+        console.log("longin_service failed");
+      }
+    })
   },
   redirectWindow:function(){
     wx.redirectTo({

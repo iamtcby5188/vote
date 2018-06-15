@@ -1,5 +1,6 @@
 package com.flybian.vote.facade;
 
+import com.flybian.util.UtilTools;
 import com.flybian.vote.datastruct.convert.UserInfoConvert;
 import com.flybian.vote.datastruct.dto.UserInfoDto;
 import com.flybian.vote.datastruct.model.UserInfoModel;
@@ -46,9 +47,19 @@ public class UserInformation
         out.write(userinfo.toString());
     }
 
-    @RequestMapping(value = "/weChatLogin",method = RequestMethod.GET)
-    public void weChatLogin(HttpServletRequest request,HttpServletResponse response,@RequestParam String code)
+    @RequestMapping(value = "/weChatLogin",method = RequestMethod.POST)
+    public void weChatLogin(HttpServletRequest request,HttpServletResponse response,@RequestBody UserInfoModel user)
     {
-        System.out.println("code" +code);
+        String id = user_info_service.weChatLogin(user);
+
+        PrintWriter out = null;
+        try{
+            out = response.getWriter();
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+        out.write(UtilTools.buildJson("id",id));
     }
 }

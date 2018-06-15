@@ -6,20 +6,22 @@
         <result property="username" column="username" javaType="java.lang.String"></result>
         <result property="nickname" column="nickname" javaType="java.lang.String"></result>
         <result property="password" column="password" javaType="java.lang.String"></result>
-        <result property="birthday" column="birthday" javaType="java.lang.String"></result>
-        <result property="age" column="age" javaType="int"></result>
-        <result property="mobile" column="mobile" javaType="java.lang.String"></result>
-        <result property="email" column="email" javaType="java.lang.String"></result>
+        <result property="gender" column="gender" javaType="int"></result>
+        <result property="country" column="country" javaType="java.lang.String"></result>
+        <result property="province" column="province" javaType="java.lang.String"></result>
+        <result property="city" column="city" javaType="java.lang.String"></result>
+        <result property="open_id" column="open_id" javaType="java.lang.String"></result>
+        <result property="session_key" column="session_key" javaType="java.lang.String"></result>
+        <result property="avatar_url" column="avatar_url" javaType="java.lang.String"></result>
         <result property="create_time" column="create_time" javaType="java.lang.String"></result>
-        <result property="create_type" column="create_type" javaType="java.lang.String"></result>
         <result property="modify_time" column="modify_time" javaType="java.lang.String"></result>
         <result property="status" column="status" javaType="int"></result>
     </resultMap>
 
     <insert id="addNewUser" useGeneratedKeys="true" keyProperty="id">
-        insert into user_info(id,username,nickname,password,birthday,age,mobile,email,status,create_time,create_type,modify_time)
+        insert into user_info(id,username,nickname,password,gender,country,province,city,open_id,session_key,avatar_url,create_time,modify_time,status)
         values
-        (#{id},#{username},#{nickname},#{password},#{birthday},#{age},#{mobile},#{email},#{status},#{create_time},#{create_type},#{modify_time})
+        (#{id},#{username},#{nickname},#{password},#{gender},#{country},#{province},#{city},#{open_id},#{session_key},#{avatar_url},#{create_time},#{modify_time},#{status})
     </insert>
 
     <update id="modifyUser" >
@@ -28,5 +30,9 @@
 
     <select id="getUserInfo" resultMap="UserInfoDto" parameterType="java.lang.String">
         select * from user_info where id = #{id}
+    </select>
+
+    <select id="getIdByOpenID" resultType="java.lang.String" parameterType="java.lang.String">
+        select id from user_info where open_id = #{open_id}
     </select>
 </mapper>

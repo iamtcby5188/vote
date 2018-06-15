@@ -5,7 +5,7 @@ App({
   
   globalData: {
     userInfo: null,
-    session_ky: null,
+    session_key: null,
     open_id: null,
   }
 })

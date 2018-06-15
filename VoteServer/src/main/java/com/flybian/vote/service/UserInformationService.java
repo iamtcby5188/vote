@@ -1,8 +1,11 @@
 package com.flybian.vote.service;
 
 import com.flybian.util.DBTools;
+import com.flybian.util.UtilTools;
 import com.flybian.vote.dao.UserInfoMapperDao;
+import com.flybian.vote.datastruct.convert.UserInfoConvert;
 import com.flybian.vote.datastruct.dto.UserInfoDto;
+import com.flybian.vote.datastruct.model.UserInfoModel;
 import org.apache.ibatis.session.SqlSession;
 
 public class UserInformationService {
@@ -26,8 +29,19 @@ public class UserInformationService {
         return  user_info_dao.getUserInfo(id);
     }
 
-    public void weChatLogin(String code)
+    public String weChatLogin(UserInfoModel user)
     {
+        UserInfoDto dto = UserInfoConvert.convertUserInfoModel(user);
+        String id = user_info_dao.getIdByOpenID(dto.getOpen_id());
+        System.out.println(id);
+        if(id == null || id.isEmpty())
+        {
+            id = dto.getId();
+            dto.setCreate_time(UtilTools.getCurrentTimeString());
+            user_info_dao.addNewUser(dto);
+            session.commit();
+        }
 
+        return  id;
     }
 }

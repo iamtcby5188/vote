@@ -1,70 +1,41 @@
 package com.flybian.vote.datastruct.dto;
 
-import com.alibaba.fastjson.JSONObject;
+import com.flybian.util.Constant;
 
 public class UserInfoDto {
     private String id;
     private String username;
-    private String nickname;
     private String password;
-    private String birthday;
-    private int age;
-    private String mobile;
-    private String email;
-    private int status;
+    private String nickname;
+    private int gender;
+    private String country;
+    private String province;
+    private String city;
+    private String open_id;
+    private String avatar_url;
+    private String session_key;
     private String create_time;
-    private String create_type;
     private String modify_time;
-
-    @Override
-    public  String toString()
-    {
-        JSONObject jo = new JSONObject();
-        jo.put("id",id);
-        jo.put("username",username);
-        jo.put("nickname",nickname);
-        jo.put("age",age);
-        jo.put("birthday",birthday);
-        jo.put("mobile",mobile);
-        jo.put("email",email);
-        return  jo.toJSONString();
-    }
+    private int status;
 
     public UserInfoDto() {
-    }
-
-    public UserInfoDto(String id, String username, String nickname, String password, String birthday, int age, String mobile, String email, String create_time, String create_type) {
-        this.id = id;
-        this.username = username;
-        this.nickname = nickname;
-        this.password = password;
-        this.birthday = birthday;
-        this.age = age;
-        this.mobile = mobile;
-        this.email = email;
-        this.create_time = create_time;
-        this.create_type = create_type;
-    }
-
-    public String getCreate_time() {
-        return create_time;
-    }
-
-    public void setModify_time(String modify_time) {
-        this.modify_time = modify_time;
-    }
-
-    public String getCreate_type() {
-
-        return create_type;
-    }
-
-    public String getModify_time() {
-        return modify_time;
+        this.id = "";
+        this.username="";
+        this.password = "";
+        this.nickname="";
+        this.gender = Constant.GENDER_MALE;
+        this.country = "";
+        this.province = "";
+        this.city ="";
+        this.open_id = "";
+        this.avatar_url = "";
+        this.session_key = "";
+        this.status = Constant.DATA_STATUS_VALIDATE;
+        this.create_time = "";
+        this.modify_time = "";
     }
 
     public String getId() {
-
         return id;
     }
 
@@ -80,14 +51,6 @@ public class UserInfoDto {
         this.username = username;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -96,36 +59,68 @@ public class UserInfoDto {
         this.password = password;
     }
 
-    public String getBirthday() {
-        return birthday;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public int getAge() {
-        return age;
+    public int getGender() {
+        return gender;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setGender(int gender) {
+        this.gender = gender;
     }
 
-    public String getMobile() {
-        return mobile;
+    public String getCountry() {
+        return country;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public String getEmail() {
-        return email;
+    public String getProvince() {
+        return province;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getOpen_id() {
+        return open_id;
+    }
+
+    public void setOpen_id(String open_id) {
+        this.open_id = open_id;
+    }
+
+    public String getAvatar_url() {
+        return avatar_url;
+    }
+
+    public void setAvatar_url(String avatar_url) {
+        this.avatar_url = avatar_url;
+    }
+
+    public String getSession_key() {
+        return session_key;
+    }
+
+    public void setSession_key(String session_key) {
+        this.session_key = session_key;
     }
 
     public int getStatus() {
@@ -134,5 +129,21 @@ public class UserInfoDto {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(String create_time) {
+        this.create_time = create_time;
+    }
+
+    public String getModify_time() {
+        return modify_time;
+    }
+
+    public void setModify_time(String modify_time) {
+        this.modify_time = modify_time;
     }
 }

@@ -1,21 +1,58 @@
 package com.flybian.vote.datastruct.model;
 
 import com.alibaba.fastjson.JSONObject;
+import com.flybian.util.Constant;
 
 public class UserInfoModel {
     private String id;
     private String username;
-    private String nickname;
-    private String birthday;
     private String password;
-    private int age;
-    private String mobile;
-    private String email;
-    private int status ;
-    private String create_type;
+    private String nickname;
+    private int gender;
+    private String country;
+    private String province;
+    private String city;
+    private String open_id;
+    private String avatar_url;
+    private String session_key;
+
+    public UserInfoModel() {
+        this.id = "";
+        this.username="";
+        this.password = "";
+        this.nickname="";
+        this.gender = Constant.GENDER_MALE;
+        this.country = "";
+        this.province = "";
+        this.city ="";
+        this.open_id = "";
+        this.avatar_url = "";
+        this.session_key = "";
+    }
+
+    public  JSONObject toJson()
+    {
+        JSONObject jo = new JSONObject();
+        jo.put("id",this.id);
+        jo.put("username",this.username);
+        jo.put("nickname",this.nickname);
+        jo.put("gender",this.gender);
+        jo.put("country",this.country);
+        jo.put("province",this.province);
+        jo.put("city",this.city);
+        jo.put("avatar_url",this.avatar_url);
+        jo.put("session_key" ,this.session_key);
+        jo.put("open_id",this.open_id);
+        return  jo;
+    }
+
+    @Override
+    public String toString() {
+        return toJson().toJSONString();
+    }
 
     public String getId() {
-        return id == null?"":id;
+        return id;
     }
 
     public void setId(String id) {
@@ -30,22 +67,6 @@ public class UserInfoModel {
         this.username = username;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -54,57 +75,67 @@ public class UserInfoModel {
         this.password = password;
     }
 
-    public int getAge() {
-        return age;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public String getMobile() {
-        return mobile;
+    public int getGender() {
+        return gender;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setGender(int gender) {
+        this.gender = gender;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCountry() {
+        return country;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public int getStatus() {
-        return status;
+    public String getProvince() {
+        return province;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setProvince(String province) {
+        this.province = province;
     }
 
-    public String getCreate_type() {
-        return create_type;
+    public String getCity() {
+        return city;
     }
 
-    public void setCreate_type(String create_type) {
-        this.create_type = create_type;
+    public void setCity(String city) {
+        this.city = city;
     }
 
+    public String getOpen_id() {
+        return open_id;
+    }
 
-    public  JSONObject toJson()
-    {
-        JSONObject jo = new JSONObject();
-        jo.put("id",id);
-        jo.put("username",username);
-        jo.put("nickname",nickname);
-        jo.put("age",age);
-        jo.put("birthday",birthday);
-        jo.put("mobile",mobile);
-        jo.put("email",email);
-        return  jo;
+    public void setOpen_id(String open_id) {
+        this.open_id = open_id;
+    }
+
+    public String getAvatar_url() {
+        return avatar_url;
+    }
+
+    public void setAvatar_url(String avatar_url) {
+        this.avatar_url = avatar_url;
+    }
+
+    public String getSession_key() {
+        return session_key;
+    }
+
+    public void setSession_key(String session_key) {
+        this.session_key = session_key;
     }
 }
