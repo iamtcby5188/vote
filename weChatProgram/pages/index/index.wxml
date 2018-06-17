@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" hidden="{{finishdata}}">
   <!-- <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -12,5 +12,11 @@
   </view> -->
   <loading hidden="{{!showLoading}}">{{loadingtext}}</loading>
   <button hidden="{{!showButton}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
+</view>
+<view class="container vote-type-list" hidden="{{!finishdata}}">
+    <image class='vote-type-image' mode="{{mutil_selection.mode}}" src="{{mutil_selection.src}}" bindtap="clickMutilImage"></image>
+    <text class='vote-type-text' bindtap="clickMutilImage"> 多选</text>
+    <image class='vote-type-image' mode="{{single_selection.mode}}" src="{{single_selection.src}}" bindtap = "clickSingleImage"></image>
+    <text class='vote-type-text' bindtap = "clickSingleImage">单选</text>
 </view>
 

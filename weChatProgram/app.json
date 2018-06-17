@@ -1,13 +1,39 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/vote_index/vote_index",
-    "pages/vote/vote"
+    "pages/vote/vote",
+    "pages/vote_cal/vote_cal",
+    "pages/vote_my/vote_my"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "resources/tabbar_image/vote.png",
+        "iconPath": "resources/tabbar_image/vote.png",
+        "pagePath": "pages/index/index",
+        "text": "新建"
+      },
+      {
+        "selectedIconPath": "resources/tabbar_image/myvote.png",
+        "iconPath": "resources/tabbar_image/myvote.png",
+        "pagePath": "pages/vote_my/vote_my",
+        "text": "我的发起"
+      },
+      {
+        "selectedIconPath": "resources/tabbar_image/votecal.png",
+        "iconPath": "resources/tabbar_image/votecal.png",
+        "pagePath": "pages/vote_cal/vote_cal",
+        "text": "我的参与"
+      }
+    ]
   }
 }

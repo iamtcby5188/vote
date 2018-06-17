@@ -6,7 +6,16 @@ Page({
   data: {
     showLoading:true,
     showButton:false,
+    finishdata:false,
     loadingtext:"正在登录",
+    mutil_selection: {
+      model: 'aspectFit',
+      src: "../../resources/vote_index/mutil_selection.jpg"
+    },
+    single_selection: {
+      model: 'aspectFit',
+      src: "../../resources/vote_index/single_selection.jpg"
+    }
   },
   onLoad: function (options) {
     // 登录
@@ -112,8 +121,18 @@ Page({
     })
   },
   redirectWindow:function(){
-    wx.redirectTo({
-      url: "../vote_index/vote_index"
+    this.setData({finishdata:true})
+  },
+  clickMutilImage: function () {
+    console.log("click mutilImage")
+    wx.navigateTo({
+      url: '../vote/vote?type=' + constant.golable_variable.vote_mutil
+    })
+  },
+  clickSingleImage: function () {
+    console.log("click singleImgae")
+    wx.navigateTo({
+      url: '../vote/vote?type=' + constant.golable_variable.vote_single
     })
   }
 })

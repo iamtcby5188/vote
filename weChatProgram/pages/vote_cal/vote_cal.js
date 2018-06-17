@@ -1,26 +1,18 @@
-// pages/vote_index/vote_index.js
-const constant = require("../../utils/constant.js")
+// pages/vote_cal/vote_cal.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    mutil_selection:{
-      model:'aspectFit',
-      src:"../../resources/vote_index/mutil_selection.jpg"
-    },
-    single_selection:{
-      model: 'aspectFit',
-      src: "../../resources/vote_index/single_selection.jpg"
-    }
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.debug("vote index");
+  
   },
 
   /**
@@ -70,17 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  clickMutilImage : function(){
-    console.log("click mutilImage")
-    wx.navigateTo({
-      url: '../vote/vote?type=' + constant.golable_variable.vote_mutil
-    })
-  },
-  clickSingleImage:function(){
-    console.log("click singleImgae")
-    wx.navigateTo({
-      url: '../vote/vote?type=' + constant.golable_variable.vote_single
-    })
   }
 })

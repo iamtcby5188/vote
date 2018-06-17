@@ -19,3 +19,19 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.vote-type-list {
+  display: flex;
+  flex-direction: column;
+  padding: 10rpx;
+}
+.vote-type-item {
+
+}
+.vote-type-image{
+  height: 350rpx;
+  padding-bottom: 20rpx
+}
+.vote-type-text{
+  height: 50rpx;
+}

@@ -2,7 +2,7 @@
 @import "../../lib/weui.wxss";
 .del-image{
   height: 50rpx;
-  width: 50rpx;
+  width: 55rpx;
   margin-right: 20rpx;
 }
 .add-image{
