@@ -7,31 +7,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    vote_list:[],
+    item_image:{
+      edit:"../../resources/item_image/edit.png",
+      del: "../../resources/item_image/del.png",
+      display: "../../resources/item_image/display.png",
+    },
+    showIndex:-1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      url: constant.getUrl(constant.request_url.getMyVote),
-      data: {
-        user_id: app.globalData.userInfo.id,
-      },
-      method: 'GET',
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: res => {
-        console.log(res);
-      },
-      fail: res => {
-        console.log("longin_service failed");
-      }
-    })
-  },
 
+  },
+  onTabItemTap(item) {
+    console.log(item.index)
+    console.log(item.pagePath)
+    console.log(item.text)
+   
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -43,7 +39,26 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    wx.request({
+      url: constant.getUrl(constant.request_url.getMyVote),
+      data: {
+        user_id: app.globalData.userInfo.id,
+      },
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: res => {
+        console.log(res);
+        this.setData({
+          vote_list:res.data
+        })
+        console.log(this.data         .vote_list)
+      },
+      fail: res => {
+        console.log("longin_service failed");
+      }
+    })
   },
 
   /**
@@ -79,5 +94,10 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  clickItem:function(e){
+    this.setData({ showIndex: e.currentTarget.id})
+
+    console.log(this.data.showIndex)
   }
 })

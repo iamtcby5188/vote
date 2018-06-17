@@ -1,1 +1,12 @@
 /* pages/vote_my/vote_my.wxss */
+@import "../../lib/weui.wxss";
+.item-image
+{
+    height: 50rpx;
+    width: 50rpx;
+    margin-right: 100rpx;
+}
+.image-view
+{
+  
+}
