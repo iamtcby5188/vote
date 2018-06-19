@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flybian.vote.dao.UserVoteInfoMapperDao">
+    <resultMap id="UserVoteInfoDto" type="com.flybian.vote.datastruct.dto.UserInfoDto">
+        <id property="id" column="id" javaType="java.lang.String"></id>
+        <result property="vote_id" column="vote_id" javaType="java.lang.String"></result>
+        <result property="vote_time" column="vote_time" javaType="java.lang.String"></result>
+        <result property="vote_topic" column="vote_topic" javaType="int"></result>
+        <result property="vote_description" column="vote_description" javaType="java.lang.String"></result>
+        <result property="user_id" column="user_id" javaType="java.lang.String"></result>
+        <result property="dead_line" column="dead_line" javaType="java.lang.String"></result>
+    </resultMap>
+
+    <resultMap id="UserVoteOptionDto" type="com.flybian.vote.datastruct.dto.UserVoteOptionDto">
+        <id property="id" column="id" javaType="java.lang.String"></id>
+        <result property="options" column="options" javaType="java.lang.String"></result>
+        <result property="user_vote_id" column="user_vote_id" javaType="java.lang.String"></result>
+        <result property="vote_option_id" column="vote_option_id" javaType="java.lang.String"></result>
+    </resultMap>
+
+    <insert id="addUserVote" useGeneratedKeys="true" keyProperty="id" parameterType="com.flybian.vote.datastruct.dto.UserVoteInfoDto">
+        insert into user_vote_info (id,vote_id,vote_time,vote_topic,vote_descroption,user_id,dead_line)
+        values
+        (#{id},#{vote_id},#{vote_time},#{vote_topic},#{vote_descroption},#{user_id},#{dead_line})
+    </insert>
+
+    <insert id="addUserOptions" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">
+        insert into user_vote_option(id,user_vote_id,vote_option_id,options) values
+        <foreach collection="list" open="" close="" item="item" index="index" separator=",">
+            (#{item.id},#{item.user_vote_id},#{item.vote_option_id},#{item.options})
+        </foreach>
+    </insert>
+</mapper>
