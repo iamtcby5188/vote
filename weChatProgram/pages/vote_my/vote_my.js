@@ -23,10 +23,7 @@ Page({
 
   },
   onTabItemTap(item) {
-    console.log(item.index)
-    console.log(item.pagePath)
-    console.log(item.text)
-   
+ 
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -96,8 +93,21 @@ Page({
   
   },
   clickItem:function(e){
-    this.setData({ showIndex: e.currentTarget.id})
+    this.setData({ showIndex: this.data.showIndex == e.currentTarget.id?-1:e.currentTarget.id})
 
     console.log(this.data.showIndex)
+  },
+  clickEdit:function(e){
+    let item_index = e.currentTarget.id
+    let item = this.data.vote_list[item_index]
+      console.log(item)
+  },
+  clickDisplay:function(e){
+    let item_index = e.currentTarget.id;
+    let item = this.data.vote_list[item_index]
+  },
+  clickDel:function(e){
+    let item_index = e.currentTarget.id;
+    let item = this.data.vote_list[item_index]
   }
 })

@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/vote/vote",
     "pages/vote_cal/vote_cal",
-    "pages/vote_my/vote_my"
+    "pages/vote_my/vote_my",
+    "pages/vote_edit/vote_edit",
+    "pages/vote_display/vote_display"
   ],
   "window": {
     "backgroundTextStyle": "light",

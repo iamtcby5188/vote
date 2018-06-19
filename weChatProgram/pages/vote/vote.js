@@ -40,7 +40,7 @@ Page({
       this.setData({vote_type:options.type})
       console.log(options.type)
       wx.setNavigationBarTitle({
-        title: options.type === constant.golable_variable.vote_single ? "创建单选投票单" : "创建多选投票单",
+        title: options.type == constant.golable_variable.vote_single ? "创建单选投票单" : "创建多选投票单", 
       })
       var curDate = new Date()
       this.setData({ date:util.formatTime(curDate,"yyyy-MM-dd")})
