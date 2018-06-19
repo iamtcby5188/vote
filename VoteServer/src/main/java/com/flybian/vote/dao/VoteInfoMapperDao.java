@@ -10,4 +10,5 @@ public interface VoteInfoMapperDao {
     public void addVoteOption(List<VoteOptionDto> lstOption);
     public List<VoteInfoDto> getVoteInfo(String user_id);
     public List<VoteOptionDto> getVoteOption(String vote_id);
+    public List<VoteInfoDto> getVoteInfoById(String id);
 }

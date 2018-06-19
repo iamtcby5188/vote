@@ -43,4 +43,26 @@ public class VoteInformation {
 
         out.write(ja.toString());
     }
+
+    @RequestMapping(value = "/getVoteInfoById",method = RequestMethod.GET)
+    public void getVoteInfoById(HttpServletRequest request, HttpServletResponse response, @RequestParam String id)
+    {
+        response.setContentType("text/json");
+        response.setCharacterEncoding("UTF-8");
+        List<VoteInfoModel> lst_model = vote_info_service.getVoteInfoById(id);
+        JSONArray ja = new JSONArray();
+        for (VoteInfoModel item : lst_model)
+        {
+            ja.add(item.toJson());
+        }
+
+        PrintWriter out = null;
+        try {
+            out = response.getWriter();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        out.write(ja.toString());
+    }
 }

@@ -34,6 +34,9 @@
         select* from vote_info where create_user = #{user_id}
     </select>
 
+    <select id="getVoteInfoById" resultMap="VoteInfoDto" parameterType="java.lang.String">
+        select* from vote_info where id = #{id}
+    </select>
     <select id="getVoteOption" resultMap="VoteOptionDto" parameterType="java.lang.String">
         select * from vote_option where vote_id = #{vote_id}
     </select>

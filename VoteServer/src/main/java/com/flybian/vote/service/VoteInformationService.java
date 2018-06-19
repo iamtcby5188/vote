@@ -41,4 +41,17 @@ public class VoteInformationService {
 
         return  lst_model;
     }
+
+    public List<VoteInfoModel> getVoteInfoById(String id)
+    {
+        List<VoteInfoModel> lst_model = new ArrayList <>();
+        List<VoteInfoDto> lst=  vote_info_dao.getVoteInfoById(id);
+        for (VoteInfoDto item : lst)
+        {
+            List<VoteOptionDto> lst_option = vote_info_dao.getVoteOption(item.getId());
+            lst_model.add(VoteInfoConvert.convertVoteDto(item,lst_option));
+        }
+
+        return  lst_model;
+    }
 }

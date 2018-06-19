@@ -1,7 +1,8 @@
 const request_url = {
   login: "user/weChatLogin",
   addNewVote:"voteinfo/addNewVote",
-  getMyVote:"voteinfo/getVoteInfo"
+  getMyVote:"voteinfo/getVoteInfo",
+  getVoteById:"voteinfo/getVoteInfoById",
 }
 
 const golable_variable ={

@@ -5,7 +5,8 @@
     "pages/vote_cal/vote_cal",
     "pages/vote_my/vote_my",
     "pages/vote_edit/vote_edit",
-    "pages/vote_display/vote_display"
+    "pages/vote_display/vote_display",
+    "pages/user_vote/user_vote"
   ],
   "window": {
     "backgroundTextStyle": "light",
