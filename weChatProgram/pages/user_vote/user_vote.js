@@ -81,5 +81,8 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  clickCommit:function(e){
+    console.log(e)
   }
 })

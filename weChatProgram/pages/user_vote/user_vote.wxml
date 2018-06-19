@@ -1,2 +1,12 @@
 <!--pages/user_vote/user_vote.wxml-->
-<text>pages/user_vote/user_vote.wxml</text>
+<view>
+  <view class = "vote-topic">{{vote.vote_topic}}</view>
+  <view class = "vote-descp" placeholder="aa">{{vote.vote_description}} <text class = "desc-votetype">[{{vote.vote_type==1?'单选':'多选'}}]</text></view>
+  <view class="weui-cells ">
+    <view  class="weui-cell" wx:for="{{vote.option_list}}">
+      <text class = "item-option-tips" space="ensp">选项{{index + 1}}  :  </text> {{item.vote_option}}
+    </view>
+  </view>
+  <button bindtap="clickCommit">提交</button>
+</view>
+

@@ -1,1 +1,27 @@
 /* pages/user_vote/user_vote.wxss */
+@import "../../lib/weui.wxss";
+.vote-topic{
+  font-family:"Times New Roman";
+  font-size:200%;
+  font-weight:bold;
+  margin-left: 20rpx;
+}
+.vote-descp{
+  font-family:"Times New Roman";
+  font-size:100%;
+  padding-left: 20rpx;
+  padding-top: 15rpx;
+  display: center;
+  height: 90rpx;
+  background-color:#f0f0f0;
+}
+.desc-votetype
+{
+  font-size:70%;
+  color:blue;
+}
+.item-option-tips
+{
+  font-size: 70%;
+  color:gray;
+}
