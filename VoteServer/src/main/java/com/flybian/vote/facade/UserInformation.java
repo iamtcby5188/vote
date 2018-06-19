@@ -21,15 +21,13 @@ public class UserInformation
     @RequestMapping(value = "/addNewUser",method = RequestMethod.POST)
     public void addNewUser(HttpServletRequest request,HttpServletResponse response,@RequestBody UserInfoModel user)
     {
-        System.out.println(user);
-       UserInfoDto userinfo = UserInfoConvert.convertUserInfoModel(user);
+        UserInfoDto userinfo = UserInfoConvert.convertUserInfoModel(user);
         user_info_service.addNewUser(userinfo);
     }
 
     @RequestMapping(value = "/modifyUser",method = RequestMethod.POST)
     public void modifyUser(HttpServletRequest request,HttpServletResponse response,@RequestBody UserInfoModel user)
     {
-        System.out.println(user);
         UserInfoDto userinfo = UserInfoConvert.convertUserInfoModel(user);
         user_info_service.modifyUser(userinfo);
     }

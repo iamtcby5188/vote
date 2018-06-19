@@ -41,7 +41,6 @@ public class VoteInformation {
             e.printStackTrace();
         }
 
-        System.out.println(ja.toString());
         out.write(ja.toString());
     }
 }

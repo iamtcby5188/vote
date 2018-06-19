@@ -40,7 +40,6 @@ public class UserVoteInformation {
         }catch(IOException e){
             e.printStackTrace();
         }
-        System.out.println(ja.toString());
         out.write(ja.toString());
     }
 }
