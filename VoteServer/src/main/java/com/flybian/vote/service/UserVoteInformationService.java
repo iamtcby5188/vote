@@ -26,6 +26,12 @@ public class UserVoteInformationService {
     public List<UserVoteInfoModel> getUserVoteByAttendUser(String attend_user_id)
     {
         List<UserVoteInfoModel> lst_ret = new ArrayList <>();
+        List<UserVoteInfoDto> lst = user_vote_info_dao.getUserVoteInfoByAttendId(attend_user_id);
+        for (UserVoteInfoDto item : lst)
+        {
+            List<UserVoteOptionDto> lst_option = user_vote_info_dao.getUserVoteOptionsByid(item.getId());
+            lst_ret.add(UserVoteConvert.convertUserVoteDto(item,lst_option));
+        }
         return lst_ret;
     }
 

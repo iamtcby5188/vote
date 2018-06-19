@@ -22,7 +22,7 @@ public class UserVoteInformation {
         user_vote_info_service.vote(vote);
     }
 
-    @RequestMapping(value = "/getAttendVote",method = RequestMethod.POST)
+    @RequestMapping(value = "/getAttendVote",method = RequestMethod.GET)
     public void getUserVoteByAttendUser(HttpServletRequest request,HttpServletResponse response, @RequestParam String attend_user_id)
     {
         response.setContentType("text/json");

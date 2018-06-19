@@ -8,4 +8,6 @@ import java.util.List;
 public interface UserVoteInfoMapperDao {
     public void addUserVote(UserVoteInfoDto vote);
     public void addUserOptions(List<UserVoteOptionDto> lstOption);
+    public List<UserVoteInfoDto> getUserVoteInfoByAttendId(String attend_id);
+    public List<UserVoteOptionDto> getUserVoteOptionsByid(String user_vote_id);
 }

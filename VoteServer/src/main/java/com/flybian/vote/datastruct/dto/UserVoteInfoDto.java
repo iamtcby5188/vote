@@ -9,6 +9,16 @@ public class UserVoteInfoDto {
     private String user_id;
     private String dead_line;
 
+    public UserVoteInfoDto() {
+        id = "";
+        vote_id = "";
+        vote_time = "";
+        vote_topic = "";
+        vote_description = "";
+        user_id = "";
+        dead_line = "";
+    }
+
     public String getDead_line() {
         return dead_line;
     }

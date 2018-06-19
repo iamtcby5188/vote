@@ -3,6 +3,7 @@ package com.flybian.vote.datastruct.model;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserVoteInfoModel {
@@ -13,6 +14,18 @@ public class UserVoteInfoModel {
     private String vote_description;
     private String user_id;
     private String dead_line;
+    private List<UserVoteOptionModel> lst_user_vote_option;
+
+    public UserVoteInfoModel() {
+        id = "";
+        vote_id = "";
+        vote_time = "";
+        vote_topic = "";
+        vote_description = "";
+        user_id = "";
+        dead_line = "";
+        lst_user_vote_option = new ArrayList <>();
+    }
 
     public String getDead_line() {
         return dead_line;
@@ -21,8 +34,6 @@ public class UserVoteInfoModel {
     public void setDead_line(String dead_line) {
         this.dead_line = dead_line;
     }
-
-    private List<UserVoteOptionModel> lst_user_vote_option;
 
     public String getUser_id() {
         return user_id;

@@ -8,6 +8,13 @@ public class UserVoteOptionModel {
     private String vote_option_id;
     private String options;
 
+    public UserVoteOptionModel() {
+        id = "";
+        user_vote_id = "";
+        vote_option_id = "";
+        options = "";
+    }
+
     public String getVote_option_id() {
         return vote_option_id;
     }
