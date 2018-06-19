@@ -19,6 +19,15 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const obj2Json =obj=>{
+  return JSON.stringify(obj)
+}
+
+const Json2Obj= json=>{
+  return JSON.parse(json);
+}
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  obj2Json : obj2Json,
+  Json2Obj:Json2Obj
 }

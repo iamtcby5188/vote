@@ -1,6 +1,7 @@
 // pages/vote_my/vote_my.js
 const app = getApp()
 const constant = require("../../utils/constant.js")
+const util = require("../../utils/util.js")
 Page({
 
   /**
@@ -105,6 +106,10 @@ Page({
   clickDisplay:function(e){
     let item_index = e.currentTarget.id;
     let item = this.data.vote_list[item_index]
+    wx.navigateTo({
+      url: '../vote_display/vote_display?item=' + util.obj2Json(item),
+    })
+   
   },
   clickDel:function(e){
     let item_index = e.currentTarget.id;

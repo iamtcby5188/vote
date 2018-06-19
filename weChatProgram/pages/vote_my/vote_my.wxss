@@ -6,7 +6,11 @@
     width: 50rpx;
     margin-right: 100rpx;
 }
+.view-item{
+  flex-direction:column;
+  align-items:flex-start;
+}
 .image-view
 {
-  
+  padding-top: 30rpx;  
 }

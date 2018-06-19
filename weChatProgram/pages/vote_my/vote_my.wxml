@@ -1,11 +1,13 @@
 <!--pages/vote_my/vote_my.wxml-->
-<view  class="weui-cells" wx:for="{{vote_list}}">
-  <view class="weui-cell" bindtap="clickItem" id="{{index}}">
-    <text>{{item.vote_topic}}</text>
-  </view>
-  <view class ="image-view weui-cell" hidden='{{showIndex != index}}' >
-    <image class ='item-image' src='{{item_image.edit}}' bindtap="clickEdit" id="{{index}}">编辑</image>
-    <image class ='item-image' src='{{item_image.display}}' bindtap="clickDisplay" id="{{index}}">查看</image>
-    <image class ='item-image' src='{{item_image.del}}' bindtap="clickDel" id="{{index}}">删除</image>
+<view class="weui-cells">
+  <view  class="weui-cell view-item"  wx:for="{{vote_list}}">
+    <view  bindtap="clickItem" id="{{index}}">
+      <text>{{item.vote_topic}}</text>
+    </view>
+    <view class ="image-view" hidden='{{showIndex != index}}' >
+      <image class ='item-image' src='{{item_image.edit}}' bindtap="clickEdit" id="{{index}}">编辑</image>
+      <image class ='item-image' src='{{item_image.display}}' bindtap="clickDisplay" id="{{index}}">查看</image>
+      <image class ='item-image' src='{{item_image.del}}' bindtap="clickDel" id="{{index}}">删除</image>
+    </view>
   </view>
 </view>

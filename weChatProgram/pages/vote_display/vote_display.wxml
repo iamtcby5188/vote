@@ -1,2 +1,10 @@
 <!--pages/vote_display/vote_display.wxml-->
-<text>pages/vote_display/vote_display.wxml</text>
+<view>
+<view class = "vote-topic">{{item.vote_topic}}</view>
+<view class = "vote-descp" placeholder="aa">{{item.vote_description}} <text class = "desc-votetype">[{{item.vote_type==1?'单选':'多选'}}]</text></view>
+<view class="weui-cells ">
+    <view  class="weui-cell" wx:for="{{item.option_list}}">
+      <text class = "item-option-tips" space="ensp">选项{{index + 1}}  :  </text> {{item.vote_option}}
+    </view>
+  </view>
+</view>

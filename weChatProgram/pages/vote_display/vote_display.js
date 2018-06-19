@@ -1,18 +1,23 @@
 // pages/vote_display/vote_display.js
+const util = require("../../utils/util.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    item:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
+    this.setData({
+      item:util.Json2Obj(options.item)
+    })
+    console.log(this.data.item)
   },
 
   /**
