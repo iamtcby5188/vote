@@ -1,5 +1,6 @@
 // pages/user_vote/user_vote.js
 const constant = require("../../utils/constant.js")
+const app = getApp()
 Page({
 
   /**
@@ -7,7 +8,8 @@ Page({
    */
   data: {
     vote_id:null,
-    vote:null
+    vote:null,
+    option_selected:[],
   },
 
   /**
@@ -26,6 +28,10 @@ Page({
         },
         success:res=>{
           if(res && res.data && res.data.length > 0){
+            let option_list = res.data[0].option_list;
+            for(let i = 0 ; i < option_list.length;++i){
+              option_list[i].checked = false
+            }
             this.setData({vote:res.data[0]})
           }
             console.log(this.data.vote)
@@ -83,6 +89,31 @@ Page({
   
   },
   clickCommit:function(e){
-    console.log(e)
+    console.log(this.data.vote)
+    var optionLst = [];
+    for (let i = 0; i < this.data.option_selected.length;++i){
+      optionLst.push({vote_option_id:this.data.option_selected[i]})
+    }
+
+    wx.request({
+      url: constant.getUrl(constant.request_url.vote),
+      method:'POST',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      data:{
+        vote_id:this.data.vote.id,
+        user_id: app.globalData.userInfo.id,
+        lst_user_vote_option:optionLst,
+      }
+    })
+  },
+  checkboxChange:function(e){
+    this.setData({option_selected:e.detail.value})
+  },
+  radioChange:function(e){
+    let option_lst =[];
+    option_lst.push(e.detail.value)
+    this.setData({ option_selected: option_lst })
   }
 })

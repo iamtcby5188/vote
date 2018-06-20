@@ -4,27 +4,13 @@ public class UserVoteInfoDto {
     private String id;
     private String vote_id;
     private String vote_time;
-    private String vote_topic;
-    private String vote_description;
     private String user_id;
-    private String dead_line;
 
     public UserVoteInfoDto() {
         id = "";
         vote_id = "";
         vote_time = "";
-        vote_topic = "";
-        vote_description = "";
         user_id = "";
-        dead_line = "";
-    }
-
-    public String getDead_line() {
-        return dead_line;
-    }
-
-    public void setDead_line(String dead_line) {
-        this.dead_line = dead_line;
     }
 
     public String getId() {
@@ -49,22 +35,6 @@ public class UserVoteInfoDto {
 
     public void setVote_time(String vote_time) {
         this.vote_time = vote_time;
-    }
-
-    public String getVote_topic() {
-        return vote_topic;
-    }
-
-    public void setVote_topic(String vote_topic) {
-        this.vote_topic = vote_topic;
-    }
-
-    public String getVote_description() {
-        return vote_description;
-    }
-
-    public void setVote_description(String vote_description) {
-        this.vote_description = vote_description;
     }
 
     public String getUser_id() {

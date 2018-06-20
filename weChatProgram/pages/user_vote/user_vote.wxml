@@ -3,9 +3,18 @@
   <view class = "vote-topic">{{vote.vote_topic}}</view>
   <view class = "vote-descp" placeholder="aa">{{vote.vote_description}} <text class = "desc-votetype">[{{vote.vote_type==1?'单选':'多选'}}]</text></view>
   <view class="weui-cells ">
-    <view  class="weui-cell" wx:for="{{vote.option_list}}">
-      <text class = "item-option-tips" space="ensp">选项{{index + 1}}  :  </text> {{item.vote_option}}
-    </view>
+    <radio-group class="radio-group" bindchange="radioChange" hidden="{{vote.vote_type==2}}">
+      <view  class="weui-cell" wx:for="{{vote.option_list}}">
+          <radio value = "{{item.id}}"/>{{item.vote_option}}
+      </view>
+    </radio-group>
+
+    <checkbox-group bindchange="checkboxChange" hidden="{{vote.vote_type==1}}">
+      <view  class="weui-cell" wx:for="{{vote.option_list}}">
+          <checkbox value = "{{item.id}}"/>{{item.vote_option}}
+      </view>
+    </checkbox-group>
+
   </view>
   <button bindtap="clickCommit">提交</button>
 </view>

@@ -121,9 +121,9 @@ Page({
     })
   },
   redirectWindow:function(){
-    //this.setData({finishdata:true})
+    this.setData({finishdata:true})
     wx.navigateTo({
-      url: '../user_vote/user_vote?vote_id=beefa398872c4438a46b40cee7ed4b5f',
+      url: '../user_vote/user_vote?vote_id=f3e55dbbbc074dcd95b7f90053885987',
     })
   },
   clickMutilImage: function () {
