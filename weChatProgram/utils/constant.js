@@ -4,6 +4,7 @@ const request_url = {
   getMyVote:"voteinfo/getVoteInfo",
   getVoteById:"voteinfo/getVoteInfoById",
   vote:"userVote/vote",
+  getAttendVote:"userVote/getAttendVote"
 }
 
 const golable_variable ={

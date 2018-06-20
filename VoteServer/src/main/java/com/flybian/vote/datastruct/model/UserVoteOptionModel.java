@@ -6,11 +6,21 @@ public class UserVoteOptionModel {
     private String id;
     private String user_vote_id;
     private String vote_option_id;
+    private String vote_option;
 
     public UserVoteOptionModel() {
         id = "";
         user_vote_id = "";
         vote_option_id = "";
+        vote_option = "";
+    }
+
+    public String getVote_option() {
+        return vote_option;
+    }
+
+    public void setVote_option(String vote_option) {
+        this.vote_option = vote_option;
     }
 
     public String getVote_option_id() {
@@ -44,6 +54,7 @@ public class UserVoteOptionModel {
         jo.put("id",id);
         jo.put("user_vote_id",user_vote_id);
         jo.put("vote_option_id",vote_option_id);
+        jo.put("vote_option",vote_option);
         return jo;
     }
 }

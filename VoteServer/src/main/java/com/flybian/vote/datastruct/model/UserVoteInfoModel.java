@@ -11,14 +11,34 @@ public class UserVoteInfoModel {
     private String vote_id;
     private String vote_time;
     private String user_id;
-    private List<UserVoteOptionModel> lst_user_vote_option;
+    private String vote_topic;
+    private String vote_description;
+    private List<UserVoteOptionModel> option_list;
 
     public UserVoteInfoModel() {
         id = "";
         vote_id = "";
         vote_time = "";
         user_id = "";
-        lst_user_vote_option = new ArrayList <>();
+        vote_topic = "";
+        vote_description = "";
+        option_list = new ArrayList <>();
+    }
+
+    public String getVote_description() {
+        return vote_description;
+    }
+
+    public void setVote_description(String vote_description) {
+        this.vote_description = vote_description;
+    }
+
+    public String getVote_topic() {
+        return vote_topic;
+    }
+
+    public void setVote_topic(String vote_topic) {
+        this.vote_topic = vote_topic;
     }
 
     public String getUser_id() {
@@ -53,13 +73,12 @@ public class UserVoteInfoModel {
         this.vote_time = vote_time;
     }
 
-
-    public List <UserVoteOptionModel> getLst_user_vote_option() {
-        return lst_user_vote_option;
+    public List <UserVoteOptionModel> getOption_list() {
+        return option_list;
     }
 
-    public void setLst_user_vote_option(List <UserVoteOptionModel> lst_user_vote_option) {
-        this.lst_user_vote_option = lst_user_vote_option;
+    public void setOption_list(List <UserVoteOptionModel> option_list) {
+        this.option_list = option_list;
     }
 
     public JSONObject toJson()
@@ -69,14 +88,15 @@ public class UserVoteInfoModel {
         jo.put("vote_id",vote_id);
         jo.put("vote_time",vote_time);
         jo.put("user_id",user_id);
+        jo.put("vote_topic",vote_topic);
 
         JSONArray ja = new JSONArray();
-        for (UserVoteOptionModel item : lst_user_vote_option)
+        for (UserVoteOptionModel item : option_list)
         {
             ja.add(item.toJson());
         }
 
-        jo.put("user_option_list",ja);
+        jo.put("option_list",ja);
         return jo;
     }
 }

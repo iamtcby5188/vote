@@ -1,2 +1,9 @@
 <!--pages/vote_cal/vote_cal.wxml-->
+<view class="weui-cells">
+  <view  class="weui-cell view-item"  wx:for="{{vote_list}}">
+    <view  bindtap="clickItem" id="{{index}}">
+      <text>{{item.vote_topic}}</text>
+    </view>
+  </view>
+</view>
 

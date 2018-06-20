@@ -40,4 +40,7 @@
     <select id="getVoteOption" resultMap="VoteOptionDto" parameterType="java.lang.String">
         select * from vote_option where vote_id = #{vote_id}
     </select>
+    <select id="getVoteOptionStringById" resultType="java.lang.String" parameterType="java.lang.String">
+        select vote_option from vote_option where id = #{id}
+    </select>
 </mapper>

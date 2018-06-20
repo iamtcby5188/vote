@@ -51,7 +51,6 @@ Page({
         this.setData({
           vote_list:res.data
         })
-        console.log(this.data         .vote_list)
       },
       fail: res => {
         console.log("longin_service failed");

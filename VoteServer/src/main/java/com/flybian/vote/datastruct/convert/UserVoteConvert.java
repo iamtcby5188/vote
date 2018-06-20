@@ -15,7 +15,7 @@ public class UserVoteConvert {
         vote_dto.setVote_time(vote_model.getVote_time().isEmpty()? UtilTools.getCurrentTimeString():vote_model.getVote_time());
         vote_dto.setUser_id(vote_model.getUser_id());
 
-        List<UserVoteOptionModel> lst = vote_model.getLst_user_vote_option();
+        List<UserVoteOptionModel> lst = vote_model.getOption_list();
         for (UserVoteOptionModel item:lst)
         {
             UserVoteOptionDto tmp_dto = new UserVoteOptionDto();
@@ -34,7 +34,7 @@ public class UserVoteConvert {
         model.setVote_time(dto.getVote_time());
         model.setUser_id(dto.getUser_id());
 
-        List<UserVoteOptionModel> lst_option = model.getLst_user_vote_option();
+        List<UserVoteOptionModel> lst_option = model.getOption_list();
         for (UserVoteOptionDto item : lst_option_dto)
         {
             UserVoteOptionModel tmp_model = new UserVoteOptionModel();

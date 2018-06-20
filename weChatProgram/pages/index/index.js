@@ -91,8 +91,6 @@ Page({
     this.login_service()
   },
   login_service:function(){
-    console.log(app.globalData.userInfo);
-    console.log(app.globalData.userInfo.avatarUrl);
     wx.request({
       url: constant.getUrl(constant.request_url.login),
       data: {
@@ -110,9 +108,8 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: res => {
-        console.log(res);
         app.globalData.userInfo.id = res.data.id;
-        console.log(app.globalData.userInfo)
+        this.setData({ finishdata: true })
         this.redirectWindow()
       },
       fail: res => {
@@ -121,9 +118,8 @@ Page({
     })
   },
   redirectWindow:function(){
-    this.setData({finishdata:true})
     wx.navigateTo({
-      url: '../user_vote/user_vote?vote_id=f3e55dbbbc074dcd95b7f90053885987',
+      url: '../user_vote/user_vote?vote_id=64bcb5c96a8d46aa91875c387882cc94',
     })
   },
   clickMutilImage: function () {

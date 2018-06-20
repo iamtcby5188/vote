@@ -89,27 +89,55 @@ Page({
   
   },
   clickCommit:function(e){
-    console.log(this.data.vote)
+    if (this.data.option_selected == null || this.data.option_selected.length <=0)
+    {
+      wx.showModal({
+        title: '提示',
+        content: '必须选择一个选项',
+        showCancel: false
+      })
+      return
+    }
+
+    wx.showModal({
+      title: '提示',
+      content: '确认提交',
+      success: res=>{
+        if(res.confirm){
+          this.sendVoteToServer()
+        }
+      }
+    })
+  },
+  sendVoteToServer:function(){
     var optionLst = [];
-    for (let i = 0; i < this.data.option_selected.length;++i){
-      optionLst.push({vote_option_id:this.data.option_selected[i]})
+    for (let i = 0; i < this.data.option_selected.length; ++i) {
+      optionLst.push({ vote_option_id: this.data.option_selected[i] })
     }
 
     wx.request({
       url: constant.getUrl(constant.request_url.vote),
-      method:'POST',
+      method: 'POST',
       header: {
         'content-type': 'application/json' // 默认值
       },
-      data:{
-        vote_id:this.data.vote.id,
+      data: {
+        vote_id: this.data.vote.id,
         user_id: app.globalData.userInfo.id,
-        lst_user_vote_option:optionLst,
+        lst_user_vote_option: optionLst,
+      },
+      success: res => {
+        wx.navigateBack({
+          delta: 1
+        })
+      },
+      fail: res => {
+        console.log("failed")
       }
     })
   },
   checkboxChange:function(e){
-    this.setData({option_selected:e.detail.value})
+    this.setData({ option_selected:e.detail.value})
   },
   radioChange:function(e){
     let option_lst =[];
