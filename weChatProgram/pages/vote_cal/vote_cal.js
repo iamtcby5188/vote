@@ -90,7 +90,7 @@ Page({
     let item_index = e.currentTarget.id;
     let item = this.data.vote_list[item_index]
     wx.navigateTo({
-      url: '../vote_display/vote_display?item=' + util.obj2Json(item),
+      url: '../vote_cal_display/vote_cal_display?item=' + util.obj2Json(item),
     })
   },
 })

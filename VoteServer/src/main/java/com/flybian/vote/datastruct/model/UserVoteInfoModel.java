@@ -13,7 +13,16 @@ public class UserVoteInfoModel {
     private String user_id;
     private String vote_topic;
     private String vote_description;
-    private List<UserVoteOptionModel> option_list;
+
+    public List <UserVoteOptionModel> getLst_user_vote_option() {
+        return lst_user_vote_option;
+    }
+
+    public void setLst_user_vote_option(List <UserVoteOptionModel> lst_user_vote_option) {
+        this.lst_user_vote_option = lst_user_vote_option;
+    }
+
+    private List<UserVoteOptionModel> lst_user_vote_option;
 
     public UserVoteInfoModel() {
         id = "";
@@ -22,7 +31,7 @@ public class UserVoteInfoModel {
         user_id = "";
         vote_topic = "";
         vote_description = "";
-        option_list = new ArrayList <>();
+        lst_user_vote_option = new ArrayList <>();
     }
 
     public String getVote_description() {
@@ -73,14 +82,6 @@ public class UserVoteInfoModel {
         this.vote_time = vote_time;
     }
 
-    public List <UserVoteOptionModel> getOption_list() {
-        return option_list;
-    }
-
-    public void setOption_list(List <UserVoteOptionModel> option_list) {
-        this.option_list = option_list;
-    }
-
     public JSONObject toJson()
     {
         JSONObject jo = new JSONObject();
@@ -91,7 +92,7 @@ public class UserVoteInfoModel {
         jo.put("vote_topic",vote_topic);
 
         JSONArray ja = new JSONArray();
-        for (UserVoteOptionModel item : option_list)
+        for (UserVoteOptionModel item : lst_user_vote_option)
         {
             ja.add(item.toJson());
         }

@@ -31,6 +31,7 @@ Page({
     date: '2016-09-01',
     time: '23:59',
     vote_type: constant.golable_variable.vote_single,
+    saveSuccess:false
   },
 
   /**
@@ -44,6 +45,7 @@ Page({
       })
       var curDate = new Date()
       this.setData({ date:util.formatTime(curDate,"yyyy-MM-dd")})
+      wx.hideShareMenu()
   },
 
   /**
@@ -91,9 +93,16 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
-  },
+  onShareAppMessage: function (e) {
+    return {
+      title:"邀请好友投票",
+      success :res=>{
+        wx.navigateBack();
+      },
+      fail: res=>{
+      }
+    }
+   },
   topicChanges:function(e){
     this.setData({"topic.text": e.detail.value})
   },
@@ -179,11 +188,11 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: res=>{
-        console.log("vote succ")
+        this.setData({
+          'saveSuccess': true
+        })
       },
-      fail:res=>{
-        console.log("vote error")
-      }
+      fail:res=>{}
       })
   }
 })

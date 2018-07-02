@@ -1,4 +1,4 @@
-<!--pages/vote_display/vote_display.wxml-->
+<!--pages/vote_cal_display/vote_cal_display.wxml-->
 <view>
 <view class = "vote-topic">{{item.vote_topic}}</view>
 <view class = "vote-descp" placeholder="aa">{{item.vote_description}} <text class = "desc-votetype">[{{item.vote_type==1?'单选':'多选'}}]</text></view>
@@ -8,4 +8,3 @@
     </view>
   </view>
 </view>
-<button open-type="share">邀请人来投票</button>

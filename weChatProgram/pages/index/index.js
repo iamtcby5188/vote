@@ -18,6 +18,7 @@ Page({
     }
   },
   onLoad: function (options) {
+    console.log(options)
     // 登录
     wx.login({
       success: res => {
@@ -118,9 +119,12 @@ Page({
     })
   },
   redirectWindow:function(){
-    wx.navigateTo({
-      url: '../user_vote/user_vote?vote_id=64bcb5c96a8d46aa91875c387882cc94',
-    })
+    console.log(app.globalData)
+    if (app.globalData.entery_scene == 1007 || app.globalData.entery_scene == 1008){
+      wx.navigateTo({
+        url: '../user_vote/user_vote?vote_id=' + app.globalData.vote_id,
+      })
+    }
   },
   clickMutilImage: function () {
     console.log("click mutilImage")

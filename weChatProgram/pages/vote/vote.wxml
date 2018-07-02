@@ -23,5 +23,6 @@
         <view class="picker">{{time}} </view>
     </picker>
   </view>
-  <button bindtap="clickComplete">完成</button>
+  <button hidden='{{!saveSuccess}}' open-type="share">邀请好友投票</button>
+  <button hidden='{{saveSuccess}}' bindtap='clickComplete'>保存投票信息</button>
 </scroll-view>

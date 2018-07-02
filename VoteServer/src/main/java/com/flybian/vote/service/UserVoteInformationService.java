@@ -44,7 +44,7 @@ public class UserVoteInformationService {
                 model_item.setVote_topic(dto.getVote_topic());
                 model_item.setVote_description(dto.getVote_description());
 
-                List<UserVoteOptionModel> option_lst = model_item.getOption_list();
+                List<UserVoteOptionModel> option_lst = model_item.getLst_user_vote_option();
                 for (UserVoteOptionModel option_model : option_lst){
                     option_model. setVote_option(vote_info_dao.getVoteOptionStringById(option_model.getVote_option_id()));
                 }
