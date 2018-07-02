@@ -46,6 +46,7 @@ public class UserVoteInformationService {
                 model.setUser_id(item.getUser_id());
                 model.setVote_topic(vote_dto.getVote_topic());
                 model.setVote_description(vote_dto.getVote_description());
+                model.setVote_type(vote_dto.getVote_type());
 
                 List <VoteOptionDto> lst_vote_option = vote_info_dao.getVoteOption(item.getVote_id());
 

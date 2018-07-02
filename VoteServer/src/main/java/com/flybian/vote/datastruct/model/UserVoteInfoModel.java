@@ -13,6 +13,15 @@ public class UserVoteInfoModel {
     private String user_id;
     private String vote_topic;
     private String vote_description;
+    private int vote_type;
+
+    public int getVote_type() {
+        return vote_type;
+    }
+
+    public void setVote_type(int vote_type) {
+        this.vote_type = vote_type;
+    }
 
     public List <UserVoteOptionModel> getLst_user_vote_option() {
         return lst_user_vote_option;
@@ -90,6 +99,8 @@ public class UserVoteInfoModel {
         jo.put("vote_time",vote_time);
         jo.put("user_id",user_id);
         jo.put("vote_topic",vote_topic);
+        jo.put("vote_description",vote_description);
+        jo.put("vote_type",vote_type);
 
         JSONArray ja = new JSONArray();
         for (UserVoteOptionModel item : lst_user_vote_option)
