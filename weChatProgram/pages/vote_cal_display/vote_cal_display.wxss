@@ -25,3 +25,14 @@
   font-size: 70%;
   color:gray;
 }
+.cal-display-image{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 100rpx;
+}
+.display-item{
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+}

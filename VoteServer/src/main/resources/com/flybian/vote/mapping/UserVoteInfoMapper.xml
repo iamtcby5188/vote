@@ -34,4 +34,16 @@
     <select id="getUserVoteOptionsByid" resultMap="UserVoteOptionDto" parameterType="java.lang.String">
         select* from user_vote_option where user_vote_id = #{user_vote_id}
     </select>
+
+    <select id="getUserVoteOptions" resultMap="UserVoteOptionDto" >
+        select* from user_vote_option where user_vote_id = #{arg0} and vote_option_id = #{arg1}
+    </select>
+
+    <select id="getUserVoteIdByOptionsid" resultType="java.lang.String" parameterType="java.lang.String">
+        select user_vote_id from user_vote_option where vote_option_id = #{option_id}
+    </select>
+
+    <select id="getUserIdByUserVoteId" resultType="java.lang.String" parameterType="java.lang.String">
+        select user_id from user_vote_info where id = #{user_vote_id}
+    </select>
 </mapper>

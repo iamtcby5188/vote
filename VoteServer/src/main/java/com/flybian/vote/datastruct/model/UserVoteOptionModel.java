@@ -10,6 +10,8 @@ public class UserVoteOptionModel {
     private String user_vote_id;
     private String vote_option_id;
     private String vote_option;
+    private Boolean isChecked;
+    private List<String> lstImage;
 
     public Boolean getChecked() {
         return isChecked;
@@ -27,8 +29,6 @@ public class UserVoteOptionModel {
         this.lstImage = lstImage;
     }
 
-    private Boolean isChecked;
-    private List<String> lstImage;
     public UserVoteOptionModel() {
         id = "";
         user_vote_id = "";
@@ -78,13 +78,17 @@ public class UserVoteOptionModel {
         jo.put("vote_option",vote_option);
         jo.put("isChecked",isChecked);
 
-        JSONArray ja = new JSONArray();
-        for (String item : lstImage)
-        {
-            ja.add(item);
+        if(lstImage != null) {
+            JSONArray ja = new JSONArray();
+            for (String item : lstImage) {
+                JSONObject tmp = new JSONObject();
+                tmp.put("image", item);
+                ja.add(tmp);
+            }
+            jo.put("image_list",ja);
         }
 
-        jo.put("image_list",ja);
+
         return jo;
     }
 }

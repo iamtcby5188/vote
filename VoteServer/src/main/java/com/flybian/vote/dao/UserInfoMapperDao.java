@@ -8,5 +8,6 @@ public interface UserInfoMapperDao {
     public UserInfoDto getUserInfo(String id);
     public UserInfoDto getUserInfoByOpenId(String open_id);
     public String getIdByOpenID(String open_id);
+    public String getImageByUserId(String user_id);
 }
 

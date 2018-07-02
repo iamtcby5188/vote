@@ -2,9 +2,15 @@
 <view>
 <view class = "vote-topic">{{item.vote_topic}}</view>
 <view class = "vote-descp" placeholder="aa">{{item.vote_description}} <text class = "desc-votetype">[{{item.vote_type==1?'单选':'多选'}}]</text></view>
-<view class="weui-cells ">
-    <view  class="weui-cell" wx:for="{{item.option_list}}">
-      <text class = "item-option-tips" space="ensp">选项{{index + 1}}  :  </text> {{item.vote_option}}
+<view class="weui-cells">
+    <view  class="weui-cell display-item" wx:for="{{item.option_list}}">
+      <view>
+        <text class = "item-option-tips" space="ensp">选项{{index + 1}}  :  </text> {{item.vote_option}} <text hidden="{{item.isChecked}}">√</text>
+      </view>
+      <text class = 'cal-display-item'>投此选项人：</text>
+      <view wx:for="{{item.image_list}}">
+        <image class="cal-display-image" src="{{item.image}}"></image>
+      </view>
     </view>
   </view>
 </view>
