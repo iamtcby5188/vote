@@ -100,6 +100,7 @@ public class VoteInfoModel {
         jo.put("vote_type",vote_type);
         jo.put("vote_topic",vote_topic);
         jo.put("vote_description",vote_description);
+        jo.put("dead_line",dead_line);
 
         JSONArray ja = new JSONArray();
         for (VoteOptionModel item:lst_vote_option)

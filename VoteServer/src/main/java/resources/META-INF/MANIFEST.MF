@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Class-Path: spring-boot-starter-web-2.0.2.RELEASE.jar classmate-1.3.4.
+ jar jackson-databind-2.9.5.jar spring-aop-5.0.6.RELEASE.jar mybatis-3
+ .4.6.jar spring-boot-2.0.2.RELEASE.jar spring-context-5.0.6.RELEASE.j
+ ar spring-webmvc-5.0.6.RELEASE.jar fastjson-1.2.15.jar jackson-dataty
+ pe-jdk8-2.9.5.jar spring-boot-starter-json-2.0.2.RELEASE.jar slf4j-ap
+ i-1.7.25.jar spring-boot-starter-2.0.2.RELEASE.jar jul-to-slf4j-1.7.2
+ 5.jar mysql-connector-java-8.0.11.jar log4j-api-2.10.0.jar logback-cl
+ assic-1.2.3.jar spring-boot-starter-logging-2.0.2.RELEASE.jar jackson
+ -datatype-jsr310-2.9.5.jar logback-core-1.2.3.jar jackson-module-para
+ meter-names-2.9.5.jar jackson-annotations-2.9.0.jar hibernate-validat
+ or-6.0.9.Final.jar jboss-logging-3.3.2.Final.jar protobuf-java-2.6.0.
+ jar spring-expression-5.0.6.RELEASE.jar javax.annotation-api-1.3.2.ja
+ r spring-web-5.0.6.RELEASE.jar spring-jcl-5.0.6.RELEASE.jar log4j-to-
+ slf4j-2.10.0.jar snakeyaml-1.19.jar validation-api-2.0.1.Final.jar to
+ mcat-embed-websocket-8.5.31.jar jackson-core-2.9.5.jar spring-core-5.
+ 0.6.RELEASE.jar tomcat-embed-core-8.5.31.jar tomcat-embed-el-8.5.31.j
+ ar spring-boot-starter-tomcat-2.0.2.RELEASE.jar spring-beans-5.0.6.RE
+ LEASE.jar spring-boot-autoconfigure-2.0.2.RELEASE.jar
+Main-Class: com.flybian.vote.VoteApplication
+

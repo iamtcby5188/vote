@@ -47,7 +47,6 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: res => {
-        console.log(res);
         this.setData({
           vote_list:res.data
         })
@@ -94,13 +93,10 @@ Page({
   },
   clickItem:function(e){
     this.setData({ showIndex: this.data.showIndex == e.currentTarget.id?-1:e.currentTarget.id})
-
-    console.log(this.data.showIndex)
   },
   clickEdit:function(e){
     let item_index = e.currentTarget.id
     let item = this.data.vote_list[item_index]
-      console.log(item)
   },
   clickDisplay:function(e){
     let item_index = e.currentTarget.id;
@@ -108,10 +104,10 @@ Page({
     wx.navigateTo({
       url: '../vote_display/vote_display?item=' + util.obj2Json(item),
     })
-   
   },
   clickDel:function(e){
     let item_index = e.currentTarget.id;
     let item = this.data.vote_list[item_index]
+    console.log(item);
   }
 })
